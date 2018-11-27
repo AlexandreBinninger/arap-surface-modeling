@@ -5,24 +5,123 @@
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public ArcBall(PApplet parent) {$/;"	m	class:ArcBall
+ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public ArcBall(float center_x, float center_y, float center_z, float radius, PApplet parent) {$/;"	m	class:ArcBall
 ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public class ArcBall {$/;"	c
+Computations	project_workspace/arapSurfaceModeling/src/Computations.java	/^public class Computations {$/;"	c
 Jama_Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^public class Jama_Matrix implements Matrix {$/;"	c
+M	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	Jama.Matrix M;$/;"	f	class:Jama_Matrix
 Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^public interface Matrix {$/;"	i
+MeshViewer	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^public class MeshViewer extends PApplet{$/;"	c
 Pair	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public Pair(K fst, V snd){$/;"	m	class:Pair
 Pair	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^public class Pair<K, V>{$/;"	c
-SVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Pair<Matrix, Matrix> SVD() {$/;"	m	class:Jama_Matrix
-SVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Pair<Matrix, Matrix> SVD();$/;"	m	interface:Matrix
+Quat	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  Quat() {$/;"	m	class:ArcBall.Quat
+Quat	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  Quat(float w, float x, float y, float z) {$/;"	m	class:ArcBall.Quat
+Quat	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^static class Quat {$/;"	c	class:ArcBall
+Rotation_3	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Rotation_3() {$/;"	m	class:Rotation_3
+Rotation_3	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Rotation_3(Matrix m) {$/;"	m	class:Rotation_3
+Rotation_3	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^public class Rotation_3 {$/;"	c
+SurfaceMesh	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public SurfaceMesh(MeshViewer view, String filename) {$/;"	m	class:SurfaceMesh
+SurfaceMesh	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^public class SurfaceMesh {$/;"	c
 Test	project_workspace/arapSurfaceModeling/src/Test.java	/^public class Test {$/;"	c
 Utils	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^package Utils;$/;"	p
+Utils	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^package Utils;$/;"	p
+Vec3	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  Vec3() {}$/;"	m	class:ArcBall.Vec3
+Vec3	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  Vec3(float x, float y, float z) {$/;"	m	class:ArcBall.Vec3
+Vec3	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^static class Vec3 {$/;"	c	class:ArcBall
+applyQuat2Matrix	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^void applyQuat2Matrix(Quat q) {$/;"	m	class:ArcBall
 arap-surface-modeling	README.md	/^# arap-surface-modeling$/;"	c
+axis	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^int axis;$/;"	f	class:ArcBall
+axisSet	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Vec3[] axisSet;$/;"	f	class:ArcBall
+center_x	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^float center_x, center_y, center_z, radius;$/;"	f	class:ArcBall
+center_y	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^float center_x, center_y, center_z, radius;$/;"	f	class:ArcBall
+center_z	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^float center_x, center_y, center_z, radius;$/;"	f	class:ArcBall
+compose	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Rotation_3 compose(Rotation_3 t) {$/;"	m	class:Rotation_3
+computeScaleFactor	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double computeScaleFactor() {$/;"	m	class:SurfaceMesh
+constrain_vector	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Vec3 constrain_vector(Vec3 vector, Vec3 axis) {$/;"	m	class:ArcBall
+cross	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  static Vec3 cross(Vec3 v1, Vec3 v2) {$/;"	m	class:ArcBall.Vec3
 display	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^package display;$/;"	p
+display	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^package display;$/;"	p
+display	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^package display;import Jcg.geometry.*;$/;"	p
+dot	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  static float dot(Vec3 v1, Vec3 v2) {$/;"	m	class:ArcBall.Vec3
+draw	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void draw() {$/;"	m	class:MeshViewer
+draw	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void draw(int type) {$/;"	m	class:SurfaceMesh
+drawAxis	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void drawAxis() {$/;"	m	class:SurfaceMesh
+drawFace	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void drawFace(Face<Point_3> f) {$/;"	m	class:SurfaceMesh
+drawSegment	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void drawSegment(Point_3 p, Point_3 q) {$/;"	m	class:SurfaceMesh
+drawTriangle	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void drawTriangle(Point_3 p, Point_3 q, Point_3 r) {$/;"	m	class:SurfaceMesh
+drawVertex	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void drawVertex(Point_3 p) {$/;"	m	class:SurfaceMesh
+filename	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	String filename="OFF\/letter_a.off";$/;"	f	class:MeshViewer
 first	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	private K first;$/;"	f	class:Pair	file:
 getFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public K getFirst(){$/;"	m	class:Pair
+getHalfedgeRotation	project_workspace/arapSurfaceModeling/src/Computations.java	/^	Rotation_3 getHalfedgeRotation(Halfedge<Point_3> h) {$/;"	m	class:Computations
+getNeighbors	project_workspace/arapSurfaceModeling/src/Computations.java	/^	ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {$/;"	m	class:Computations
+getOppositeAngle	project_workspace/arapSurfaceModeling/src/Computations.java	/^	double getOppositeAngle(Halfedge<Point_3> h) {$/;"	m	class:Computations
+getSVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Pair<Matrix, Matrix> getSVD() {$/;"	m	class:Jama_Matrix
+getSVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Pair<Matrix, Matrix> getSVD();$/;"	m	interface:Matrix
 getSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public V getSecond(){$/;"	m	class:Pair
+getValue	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float[] getValue() {$/;"	m	class:ArcBall.Quat
+getWeight	project_workspace/arapSurfaceModeling/src/Computations.java	/^	double getWeight(Halfedge<Point_3> h) {$/;"	m	class:Computations
+getWeightsMatrix	project_workspace/arapSurfaceModeling/src/Computations.java	/^	Matrix getWeightsMatrix(Halfedge<Point_3> h) {$/;"	m	class:Computations
+incrx	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double incrx=0.;$/;"	f	class:SurfaceMesh
+incrxMoins	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrxMoins(double incr){$/;"	m	class:MeshViewer
+incrxPlus	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrxPlus(double incr){$/;"	m	class:MeshViewer
+incry	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double incry=0.;$/;"	f	class:SurfaceMesh
+incryMoins	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incryMoins(double incr){$/;"	m	class:MeshViewer
+incryPlus	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incryPlus(double incr){$/;"	m	class:MeshViewer
+incrz	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double incrz=0.;$/;"	f	class:SurfaceMesh
+incrzMoins	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrzMoins(double incr){$/;"	m	class:MeshViewer
+incrzPlus	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrzPlus(double incr){$/;"	m	class:MeshViewer
+keyPressed	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void keyPressed(){$/;"	m	class:MeshViewer
+length	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float length() {$/;"	m	class:ArcBall.Vec3
+m	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	Matrix m;$/;"	f	class:Rotation_3
 main	project_workspace/arapSurfaceModeling/src/Test.java	/^	public static void main(String[] args){$/;"	m	class:Test
+main	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public static void main(String args[]) {$/;"	m	class:MeshViewer
 matrixPkg	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^package matrixPkg;$/;"	p
 matrixPkg	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^package matrixPkg;$/;"	p
+mesh	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	SurfaceMesh mesh; \/\/ 3d surface mesh$/;"	f	class:MeshViewer
+mouseDragged	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public void mouseDragged() {$/;"	m	class:ArcBall
+mouseEvent	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public void mouseEvent(MouseEvent event) {$/;"	m	class:ArcBall
+mousePressed	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public void mousePressed() {$/;"	m	class:ArcBall
+mouse_to_sphere	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Vec3 mouse_to_sphere(float x, float y) {$/;"	m	class:ArcBall
+mul	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  static Quat mul(Quat q1, Quat q2) {$/;"	m	class:ArcBall.Quat
+mul	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  static Vec3 mul(Vec3 v, float d) {$/;"	m	class:ArcBall.Vec3
+normalize	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void normalize() {$/;"	m	class:ArcBall.Vec3
+parent	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^PApplet parent;$/;"	f	class:ArcBall
+polyhedron3D	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public Polyhedron_3<Point_3> polyhedron3D; \/\/ triangle mesh$/;"	f	class:SurfaceMesh
+pre	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public void pre() {$/;"	m	class:ArcBall
+q_down	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Quat q_now, q_down, q_drag;$/;"	f	class:ArcBall
+q_drag	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Quat q_now, q_down, q_drag;$/;"	f	class:ArcBall
+q_now	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Quat q_now, q_down, q_drag;$/;"	f	class:ArcBall
+radius	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^float center_x, center_y, center_z, radius;$/;"	f	class:ArcBall
+renderModes	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	int renderModes=2; \/\/ number of rendering modes$/;"	f	class:MeshViewer
+renderType	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	int renderType=0; \/\/ choice of type of rendering$/;"	f	class:MeshViewer
+reset	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void reset() {$/;"	m	class:ArcBall.Quat
+rotationAxisX	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public static Rotation_3 rotationAxisX(double theta) {$/;"	m	class:Rotation_3
+rotationAxisY	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public static Rotation_3 rotationAxisY(double theta) {$/;"	m	class:Rotation_3
+rotationAxisZ	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public static Rotation_3 rotationAxisZ(double theta) {$/;"	m	class:Rotation_3
+round	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public static double round(double x, int precision) {$/;"	m	class:SurfaceMesh
 runtime	project_workspace/.metadata/version.ini	/^org.eclipse.core.runtime=1/;"	k
+scaleFactor	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	double scaleFactor=60; \/\/ scaling factor: useful for 3d rendering$/;"	f	class:SurfaceMesh
 second	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	private V second;$/;"	f	class:Pair	file:
+set	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void set(Quat q) {$/;"	m	class:ArcBall.Quat
+set	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void set(float w, Vec3 v) {$/;"	m	class:ArcBall.Quat
 setFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public void setFirst(K fst){$/;"	m	class:Pair
 setSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public void setSecond(V snd){$/;"	m	class:Pair
+setup	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	public void setup() {$/;"	m	class:MeshViewer
+sub	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void sub(Vec3 v1, Vec3 v2) {$/;"	m	class:ArcBall.Vec3
+transform	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Point_3 transform(Point_3 p) {$/;"	m	class:Rotation_3
+updateScaleFactor	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void updateScaleFactor() {$/;"	m	class:SurfaceMesh
+v_down	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Vec3 v_down, v_drag;$/;"	f	class:ArcBall
+v_drag	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Vec3 v_down, v_drag;$/;"	f	class:ArcBall
+view	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	MeshViewer view; \/\/ Processing 3d frame (where meshes are rendered)$/;"	f	class:SurfaceMesh
+w	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float w, x, y, z;$/;"	f	class:ArcBall.Quat
+x	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float w, x, y, z;$/;"	f	class:ArcBall.Quat
+x	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float x, y, z;$/;"	f	class:ArcBall.Vec3
+y	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float w, x, y, z;$/;"	f	class:ArcBall.Quat
+y	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float x, y, z;$/;"	f	class:ArcBall.Vec3
+z	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float w, x, y, z;$/;"	f	class:ArcBall.Quat
+z	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float x, y, z;$/;"	f	class:ArcBall.Vec3
+zoom	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double zoom=1.; \/\/ for scaling the drawing$/;"	f	class:SurfaceMesh
+zoomIn	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void zoomIn() {$/;"	m	class:MeshViewer
+zoomOut	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void zoomOut() {$/;"	m	class:MeshViewer
