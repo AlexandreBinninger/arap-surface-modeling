@@ -6,7 +6,10 @@ public class Test {
 	
 	public static void main(String[] args){
 		System.out.println("Test : It works !");
-		
 	}
+	
+	int a=0;
+	int b=1;
+	a=b;
 
 }

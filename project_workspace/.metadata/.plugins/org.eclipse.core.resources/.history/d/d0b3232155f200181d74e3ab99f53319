@@ -1,0 +1,13 @@
+package Utils;
+
+public class Pair<K, V>{
+	
+	private K first;
+	private V second;
+	
+	public static Pair<K, V>(K fst, V snd){
+		this.first=fst;
+		this.second=snd;
+	}
+	
+}
