@@ -1,0 +1,28 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/45968eff/
+ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public class ArcBall {$/;"	c
+Jama_Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^public class Jama_Matrix implements Matrix {$/;"	c
+Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^public interface Matrix {$/;"	i
+Pair	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public Pair(K fst, V snd){$/;"	m	class:Pair
+Pair	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^public class Pair<K, V>{$/;"	c
+SVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Pair<Matrix, Matrix> SVD() {$/;"	m	class:Jama_Matrix
+SVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Pair<Matrix, Matrix> SVD();$/;"	m	interface:Matrix
+Test	project_workspace/arapSurfaceModeling/src/Test.java	/^public class Test {$/;"	c
+Utils	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^package Utils;$/;"	p
+arap-surface-modeling	README.md	/^# arap-surface-modeling$/;"	c
+display	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^package display;$/;"	p
+first	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	private K first;$/;"	f	class:Pair	file:
+getFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public K getFirst(){$/;"	m	class:Pair
+getSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public V getSecond(){$/;"	m	class:Pair
+main	project_workspace/arapSurfaceModeling/src/Test.java	/^	public static void main(String[] args){$/;"	m	class:Test
+matrixPkg	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^package matrixPkg;$/;"	p
+matrixPkg	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^package matrixPkg;$/;"	p
+runtime	project_workspace/.metadata/version.ini	/^org.eclipse.core.runtime=1/;"	k
+second	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	private V second;$/;"	f	class:Pair	file:
+setFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public void setFirst(K fst){$/;"	m	class:Pair
+setSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public void setSecond(V snd){$/;"	m	class:Pair
