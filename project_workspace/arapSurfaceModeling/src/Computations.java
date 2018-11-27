@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
 import Utils.Rotation_3;
@@ -40,6 +42,14 @@ public class Computations {
 	}
 	
 	Matrix getWeightsMatrix(Halfedge<Point_3> h) {
+		ArrayList<Double> weights = new ArrayList<Double>();
+		ArrayList<Halfedge<Point_3>> neighbors = getNeighbors(h);
+		Iterator<Halfedge<Point_3>> iter = neighbors.iterator();
+		while(iter.hasNext()) {
+			Halfedge<Point_3> e = iter.next();
+			weights.add(getWeight(e));
+		}
+		// TODO
 		return null;
 	}
 
