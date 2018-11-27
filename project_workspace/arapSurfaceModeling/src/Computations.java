@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
 import Utils.Rotation_3;
+import matrixPkg.Matrix;
 
 public class Computations {
 	
@@ -16,7 +17,7 @@ public class Computations {
 		Point_3 c = vc.getPoint();
 		Vector_3 e1 = new Vector_3(b,a);
 		Vector_3 e2 = new Vector_3(b,c);
-		return (double) e1.innerProduct(e2);
+		return (Double) e1.innerProduct(e2);
 	}
 	
 	double getWeight(Halfedge<Point_3> h) {
@@ -27,15 +28,19 @@ public class Computations {
 		return(0.5 * (1/Math.atan(alpha))* (1/Math.atan(beta)));
 	}
 	
-	ArrayList<Vertex<Point_3>> getNeighbors(Halfedge<Point_3> h) {
+	ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {
 		Halfedge<Point_3> e = h.getNext();
 		Halfedge<Point_3> o = h.getOpposite();
-		ArrayList<Vertex<Point_3>> neighbors = new ArrayList<Vertex<Point_3>>();
+		ArrayList<Halfedge<Point_3>> neighbors = new ArrayList<Halfedge<Point_3>>();
 		while (e != o) {
-			neighbors.add(e.getVertex());
+			neighbors.add(e);
 			e = e.getOpposite().getNext();
 		}
 		return(neighbors);
+	}
+	
+	Matrix getWeightsMatrix(Halfedge<Point_3> h) {
+		return null;
 	}
 
 	Rotation_3 getHalfedgeRotation(Halfedge<Point_3> h) {
