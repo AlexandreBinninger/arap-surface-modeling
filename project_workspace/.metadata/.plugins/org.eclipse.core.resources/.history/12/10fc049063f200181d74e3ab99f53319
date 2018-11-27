@@ -16,7 +16,7 @@ public class Computations {
 		Point_3 c = vc.getPoint();
 		Vector_3 e1 = new Vector_3(b,a);
 		Vector_3 e2 = new Vector_3(b,c);
-		return (Double) e1.innerProduct(e2);
+		return (double) e1.innerProduct(e2);
 	}
 	
 	double getWeight(Halfedge<Point_3> h) {
