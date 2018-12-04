@@ -27,7 +27,6 @@ public class RigidTransformation {
 		 */
 		
 		// Step 1
-		
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
 		}
@@ -52,14 +51,14 @@ public class RigidTransformation {
 		
 	}
 	
-	// TODO
+	
 	public Point_3 getBi(Vertex i){
 		Point_3 b = new Point_3(0., 0., 0.);
 		Rotation_3 R_i = VertRotMap.get(i);
 		for (Halfedge<Point_3> h : Computations.getNeighbors(i.getHalfedge())){
 			Rotation_3 R_j = VertRotMap.get(h.vertex);
 			Matrix R_ij = R_i.getMatrix().plus(R_j.getMatrix());
-//			R_ij.times(weightij.get(i).);
+			R_ij.times(weightij.get(i).);
 		}
 		return b;
 	}
