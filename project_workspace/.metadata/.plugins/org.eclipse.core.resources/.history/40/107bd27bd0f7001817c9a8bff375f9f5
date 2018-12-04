@@ -52,7 +52,6 @@ public class RigidTransformation {
 		for (Halfedge<Point_3> h : Computations.getNeighbors(i.getHalfedge())){
 			Rotation_3 R_j = VertRotMap.get(h.vertex);
 			Matrix R_ij = R_i.getMatrix().plus(R_j.getMatrix());
-			//R_ij.times(weightij.get(key).);
 		}
 		return b;
 	}
