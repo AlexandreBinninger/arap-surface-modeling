@@ -9,6 +9,8 @@ ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public 
 ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public ArcBall(float center_x, float center_y, float center_z, float radius, PApplet parent) {$/;"	m	class:ArcBall
 ArcBall	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public class ArcBall {$/;"	c
 Computations	project_workspace/arapSurfaceModeling/src/Computations.java	/^public class Computations {$/;"	c
+Jama_Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Jama_Matrix(Jama.Matrix MM){$/;"	m	class:Jama_Matrix
+Jama_Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Jama_Matrix(double[][] array){$/;"	m	class:Jama_Matrix
 Jama_Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^public class Jama_Matrix implements Matrix {$/;"	c
 M	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	Jama.Matrix M;$/;"	f	class:Jama_Matrix
 Matrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^public interface Matrix {$/;"	i
@@ -53,8 +55,12 @@ drawTriangle	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	
 drawVertex	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void drawVertex(Point_3 p) {$/;"	m	class:SurfaceMesh
 filename	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	String filename="OFF\/letter_a.off";$/;"	f	class:MeshViewer
 first	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	private K first;$/;"	f	class:Pair	file:
+get	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public double get(int i, int j){$/;"	m	class:Jama_Matrix
+get	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public double get(int i, int j);$/;"	m	interface:Matrix
 getFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public K getFirst(){$/;"	m	class:Pair
 getHalfedgeRotation	project_workspace/arapSurfaceModeling/src/Computations.java	/^	Rotation_3 getHalfedgeRotation(Halfedge<Point_3> h) {$/;"	m	class:Computations
+getMatrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Jama_Matrix getMatrix(double[][] array){$/;"	m	class:Jama_Matrix
+getMatrix	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Matrix getMatrix(double[][] array);$/;"	m	interface:Matrix
 getNeighbors	project_workspace/arapSurfaceModeling/src/Computations.java	/^	ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {$/;"	m	class:Computations
 getOppositeAngle	project_workspace/arapSurfaceModeling/src/Computations.java	/^	double getOppositeAngle(Halfedge<Point_3> h) {$/;"	m	class:Computations
 getSVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Pair<Matrix, Matrix> getSVD() {$/;"	m	class:Jama_Matrix
@@ -62,7 +68,7 @@ getSVD	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public
 getSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public V getSecond(){$/;"	m	class:Pair
 getValue	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  float[] getValue() {$/;"	m	class:ArcBall.Quat
 getWeight	project_workspace/arapSurfaceModeling/src/Computations.java	/^	double getWeight(Halfedge<Point_3> h) {$/;"	m	class:Computations
-getWeightsMatrix	project_workspace/arapSurfaceModeling/src/Computations.java	/^	Matrix getWeightsMatrix(Halfedge<Point_3> h) {$/;"	m	class:Computations
+getWeightsArray	project_workspace/arapSurfaceModeling/src/Computations.java	/^	ArrayList<Double> getWeightsArray(Halfedge<Point_3> h) {$/;"	m	class:Computations
 incrx	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double incrx=0.;$/;"	f	class:SurfaceMesh
 incrxMoins	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrxMoins(double incr){$/;"	m	class:MeshViewer
 incrxPlus	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrxPlus(double incr){$/;"	m	class:MeshViewer
@@ -88,6 +94,8 @@ mul	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  static Qu
 mul	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  static Vec3 mul(Vec3 v, float d) {$/;"	m	class:ArcBall.Vec3
 normalize	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void normalize() {$/;"	m	class:ArcBall.Vec3
 parent	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^PApplet parent;$/;"	f	class:ArcBall
+plus	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Matrix plus(Matrix B) {$/;"	m	class:Jama_Matrix
+plus	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Matrix plus(Matrix B);$/;"	m	interface:Matrix
 polyhedron3D	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public Polyhedron_3<Point_3> polyhedron3D; \/\/ triangle mesh$/;"	f	class:SurfaceMesh
 pre	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^public void pre() {$/;"	m	class:ArcBall
 q_down	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Quat q_now, q_down, q_drag;$/;"	f	class:ArcBall
@@ -110,6 +118,10 @@ setFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public voi
 setSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public void setSecond(V snd){$/;"	m	class:Pair
 setup	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^	public void setup() {$/;"	m	class:MeshViewer
 sub	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^  void sub(Vec3 v1, Vec3 v2) {$/;"	m	class:ArcBall.Vec3
+times	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Jama_Matrix times(double s) {$/;"	m	class:Jama_Matrix
+times	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Matrix times(Matrix B) {$/;"	m	class:Jama_Matrix
+times	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Matrix times(Matrix B);$/;"	m	interface:Matrix
+times	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Matrix times(double s);$/;"	m	interface:Matrix
 transform	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Point_3 transform(Point_3 p) {$/;"	m	class:Rotation_3
 updateScaleFactor	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public void updateScaleFactor() {$/;"	m	class:SurfaceMesh
 v_down	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^Vec3 v_down, v_drag;$/;"	f	class:ArcBall
