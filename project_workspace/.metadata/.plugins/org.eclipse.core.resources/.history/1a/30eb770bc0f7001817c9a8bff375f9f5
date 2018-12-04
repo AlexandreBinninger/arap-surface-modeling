@@ -7,6 +7,6 @@ public interface Matrix {
 	
 	public double get(int i, int j);
 	
-	public Matrix getMatrix(double[][] array);
+	public Matrix(double[][] array);
 
 }

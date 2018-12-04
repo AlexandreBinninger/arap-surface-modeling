@@ -16,8 +16,8 @@ public class Jama_Matrix implements Matrix {
 	}
 	
 	public Jama_Matrix getMatrix(double[][] array){
-		Jama_Matrix result = new Jama_Matrix(array);
-		return result;
+		result = new Jama_Matrix(array);
+		return array;
 	}
 
 	@Override
