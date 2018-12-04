@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Jama.Matrix"/>
+<fullyQualifiedTypeName name="matrixPkg.Matrix"/>
+<fullyQualifiedTypeName name="matrixPkg.Jama_Matrix"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="Utils.Pair"/>
 </qualifiedTypeNameHistroy>
