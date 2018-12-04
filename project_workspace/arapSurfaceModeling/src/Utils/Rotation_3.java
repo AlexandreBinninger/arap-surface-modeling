@@ -1,6 +1,6 @@
 package Utils;
 import Jcg.geometry.*;
-import Jama.Matrix;
+import matrixPkg.Matrix;
 
 /**
  * Define a 3D Rotation (using Euler angles)
@@ -13,31 +13,26 @@ public class Rotation_3 {
 	
 	/**
 	 * The identity transformation
+	 * Rotation should be instantiated only through a defined class (such as Jama)
 	 */
 	public Rotation_3(Matrix m) {
 		this.m=m;
-	}
+	}	
 
-	/**
-	 * The identity rotation
-	 */
-	public Rotation_3() {
-		double[][] array = {{1.,0.,0.},
-							{0.,1.,0.},
-							{0.,0.,1.}}; 
-		this.m=new Matrix(array);
+	public Rotation_3(Matrix M, double[][] array){
+		this.m=M.getMatrix(array);
 	}
 
 	/**
 	 * Return a rotation of an angle theta, around X axis
 	 */
-	public static Rotation_3 rotationAxisX(double theta) {
+	public static Rotation_3 rotationAxisX(Matrix M, double theta) {
 		double[][] array = {
 				{1.,0.,0.},
 				{0.,Math.cos(theta),-Math.sin(theta)},
 				{0.,Math.sin(theta),Math.cos(theta)}}; 
 		
-		return new Rotation_3(new Matrix(array));
+		return new Rotation_3(M, array);
 	}
 
 	/**
@@ -62,7 +57,7 @@ public class Rotation_3 {
 		double y=p.getCartesian(1).doubleValue();
 		double z=p.getCartesian(2).doubleValue();
 		double[][] array = {{x}, {y}, {z}}; 
-		Matrix v=new Matrix(array); // the vector
+		Matrix v=m.getMatrix(array); // the vector
 		
 		Matrix result=this.m.times(v);
 		double[] coord={result.get(0, 0), result.get(1, 0), result.get(2, 0)};

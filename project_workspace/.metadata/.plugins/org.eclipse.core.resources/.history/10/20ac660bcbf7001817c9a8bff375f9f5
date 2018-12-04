@@ -1,0 +1,62 @@
+package matrixPkg;
+
+import Jama.*;
+import Utils.Pair;
+
+public class Jama_Matrix implements Matrix {
+
+	Jama.Matrix M;
+
+	public Jama_Matrix(Jama.Matrix MM) {
+		this.M = MM;
+	}
+
+	public Jama_Matrix(double[][] array) {
+		this.M = new Jama.Matrix(array);
+	}
+
+	public Jama_Matrix getMatrix(double[][] array) {
+		Jama_Matrix result = new Jama_Matrix(array);
+		return result;
+	}
+
+	public Pair<Matrix, Matrix> getSVD() {
+		SingularValueDecomposition svd = this.M.svd();
+		Matrix u = (Matrix) svd.getU();
+		Matrix v = (Matrix) svd.getV();
+		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u, v);
+		return uv;
+	}
+	
+	@Override
+	public double get(int i, int j){
+		return M.get(i,  j);
+	}
+	
+<<<<<<< HEAD
+
+||||||| merged common ancestors
+	
+=======
+	
+	public Jama_Matrix times(double s) {
+		return (new Jama_Matrix(this.M.times(s)));
+	}
+
+	public Matrix times(Matrix B) {
+		if (B instanceof Jama_Matrix) {
+			return (new Jama_Matrix(this.M.times(((Jama_Matrix)B).M)));
+		}
+		System.err.println("Jama_Matrix times (not Jama_Matrix)");
+		return null;
+	}
+
+	public Matrix plus(Matrix B) {
+		if (B instanceof Jama_Matrix) {
+			return (new Jama_Matrix(this.M.plus(((Jama_Matrix)B).M)));
+		}
+		System.err.println("Jama_Matrix plus (not Jama_Matrix)");
+		return null;
+	}
+>>>>>>> 53ada4933f4d7322e20ad1a9689f41cc62444211
+}
