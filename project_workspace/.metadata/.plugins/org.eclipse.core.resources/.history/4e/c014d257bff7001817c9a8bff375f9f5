@@ -4,7 +4,6 @@ import java.util.Iterator;
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
 import Utils.Rotation_3;
-import matrixPkg.Matrix;
 
 public class Computations {
 	
@@ -30,17 +29,24 @@ public class Computations {
 		return(0.5 * (1/Math.atan(alpha))* (1/Math.atan(beta)));
 	}
 	
-	ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {
+	ArrayList<Vertex<Point_3>> getNeighbors(Halfedge<Point_3> h) {
 		Halfedge<Point_3> e = h.getNext();
 		Halfedge<Point_3> o = h.getOpposite();
-		ArrayList<Halfedge<Point_3>> neighbors = new ArrayList<Halfedge<Point_3>>();
+		ArrayList<Vertex<Point_3>> neighbors = new ArrayList<Vertex<Point_3>>();
 		while (e != o) {
-			neighbors.add(e);
+			neighbors.add(e.getVertex());
 			e = e.getOpposite().getNext();
 		}
 		return(neighbors);
 	}
-
+<<<<<<< HEAD
+||||||| merged common ancestors
+	
+	Matrix getWeightsMatrix(Halfedge<Point_3> h) {
+		return null;
+	}
+=======
+	
 	Matrix getWeightsMatrix(Halfedge<Point_3> h) {
 		ArrayList<Double> weights = new ArrayList<Double>();
 		ArrayList<Halfedge<Point_3>> neighbors = getNeighbors(h);
@@ -52,6 +58,7 @@ public class Computations {
 		// TODO
 		return null;
 	}
+>>>>>>> 0e8abb1a831614b9c8e5f95bac2a5f214b87954a
 
 	Rotation_3 getHalfedgeRotation(Halfedge<Point_3> h) {
 		return null;
