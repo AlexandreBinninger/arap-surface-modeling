@@ -11,7 +11,7 @@ public class RigidTransformation {
 	
 	public Polyhedron_3<Point_3> polyhedron3D;
 	public HashMap<Vertex, Rotation_3> VertRotMap;
-	public HashMap<Halfedge<Point_3>, HashMap<Halfedge<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
+	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
 	
 	
 	public void RigidTransformation(){//some constraints in parameters
@@ -27,8 +27,13 @@ public class RigidTransformation {
 		 */
 		
 		// Step 1
-		for (Halfedge e : polyhedron3D.halfedges){
-			weightij.put(e, getWeightsArray(e));
+		for (Halfedge h : polyhedron3D.halfedges){
+			HashMap<Vertex<Point_3>, Double> neighbors = new HashMap<Vertex<Point_3>, Double>();
+			ArrayList<Halfedge<Point_3>> neighborsArray = Computations.getNeighbors(h);
+			for (Halfedge<Point_3> e : neighborsArray) {
+//				weights
+			}
+			weightij.put(v, neighbors);
 		}
 		
 		//Step 2
