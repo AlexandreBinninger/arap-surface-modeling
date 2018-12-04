@@ -58,7 +58,7 @@ public class Computations {
 //		return (neighbors);
 //	}
 
-	static HashMap<Halfedge<Point_3>, Double> getWeightsArray(Halfedge<Point_3> h, ArrayList<Halfedge<Point_3>> neighbors) {
+	HashMap<Halfedge<Point_3>, Double> getWeightsArray(Halfedge<Point_3> h, ArrayList<Halfedge<Point_3>> neighbors) {
 		HashMap<Halfedge<Point_3>, Double> weights = new HashMap<Halfedge<Point_3>, Double>();
 		Iterator<Halfedge<Point_3>> iter = neighbors.iterator();
 		while (iter.hasNext()) {

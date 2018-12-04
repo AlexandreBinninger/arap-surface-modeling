@@ -51,7 +51,7 @@ public class RigidTransformation {
 		
 	}
 	
-	// TODO
+	
 	public Point_3 getBi(Vertex i){
 		Point_3 b = new Point_3(0., 0., 0.);
 		Rotation_3 R_i = VertRotMap.get(i);
