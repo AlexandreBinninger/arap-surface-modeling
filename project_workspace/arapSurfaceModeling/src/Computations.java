@@ -41,7 +41,7 @@ public class Computations {
 		return(neighbors);
 	}
 
-	Matrix getWeightsMatrix(Halfedge<Point_3> h) {
+	ArrayList<Double> getWeightsArray(Halfedge<Point_3> h) {
 		ArrayList<Double> weights = new ArrayList<Double>();
 		ArrayList<Halfedge<Point_3>> neighbors = getNeighbors(h);
 		Iterator<Halfedge<Point_3>> iter = neighbors.iterator();
@@ -49,10 +49,24 @@ public class Computations {
 			Halfedge<Point_3> e = iter.next();
 			weights.add(getWeight(e));
 		}
-		// TODO
-		return null;
+		return weights;
 	}
-
+	
+//	Matrix getWeightsMatrix(Matrix M, Halfedge<Point_3> h) {
+//		ArrayList<Double> weights = new ArrayList<Double>();
+//		ArrayList<Halfedge<Point_3>> neighbors = getNeighbors(h);
+//		Iterator<Halfedge<Point_3>> iter = neighbors.iterator();
+//		while(iter.hasNext()) {
+//			Halfedge<Point_3> e = iter.next();
+//			weights.add(getWeight(e));
+//		}
+//		double[][] weights_array = new double[weights.size()][weights.size()];
+//		for (int i = 0; i < weights_array.length; i++) {
+//			weights_array[i][i] = weights.get(i);
+//		}
+//		return M.getMatrix(weights_array);
+//	}
+	
 	Rotation_3 getHalfedgeRotation(Halfedge<Point_3> h) {
 		return null;
 	}
