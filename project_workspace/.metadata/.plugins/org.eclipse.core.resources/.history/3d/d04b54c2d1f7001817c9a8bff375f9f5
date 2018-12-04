@@ -53,4 +53,8 @@ public class Jama_Matrix implements Matrix {
 		System.err.println("Jama_Matrix plus (not Jama_Matrix)");
 		return null;
 	}
+	
+	public Matrix getTranspose() {
+		return (new Jama_Matrix(this.M.transpose()));
+	}
 }
