@@ -33,7 +33,7 @@ public class Computations {
 		return (0.5 * (1 / Math.atan(alpha)) * (1 / Math.atan(beta)));
 	}
 
-	ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {
+	static ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {
 		Halfedge<Point_3> e = h.getNext();
 		Halfedge<Point_3> o = h.getOpposite();
 		ArrayList<Halfedge<Point_3>> neighbors = new ArrayList<Halfedge<Point_3>>();

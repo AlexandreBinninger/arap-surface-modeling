@@ -74,8 +74,4 @@ public class Rotation_3 {
 		return new Rotation_3(composition);
 	}
 	
-	public Matrix getMatrix(){
-		return this.m;
-	}
-	
 }
