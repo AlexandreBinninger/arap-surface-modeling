@@ -1,6 +1,6 @@
 package matrixPkg;
 
-import Jama.SingularValueDecomposition;
+import Jama.*;
 import Utils.Pair;
 
 public class Jama_Matrix implements Matrix {
@@ -20,7 +20,6 @@ public class Jama_Matrix implements Matrix {
 		return result;
 	}
 
-	@Override
 	public Pair<Matrix, Matrix> getSVD() {
 		SingularValueDecomposition svd = this.M.svd();
 		Matrix u = (Matrix) svd.getU();
@@ -29,9 +28,27 @@ public class Jama_Matrix implements Matrix {
 		return uv;
 	}
 	
-	@Override
 	public double get(int i, int j){
 		return M.get(i,  j);
 	}
 	
+	public Jama_Matrix times(double s) {
+		return (new Jama_Matrix(this.M.times(s)));
+	}
+
+	public Matrix times(Matrix B) {
+		if (B instanceof Jama_Matrix) {
+			return (new Jama_Matrix(this.M.times(((Jama_Matrix)B).M)));
+		}
+		System.err.println("Jama_Matrix times (not Jama_Matrix)");
+		return null;
+	}
+
+	public Matrix plus(Matrix B) {
+		if (B instanceof Jama_Matrix) {
+			return (new Jama_Matrix(this.M.plus(((Jama_Matrix)B).M)));
+		}
+		System.err.println("Jama_Matrix plus (not Jama_Matrix)");
+		return null;
+	}
 }
