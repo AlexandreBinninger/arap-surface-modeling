@@ -14,4 +14,6 @@ public interface Matrix {
 	public Matrix times(Matrix B);
 	
 	public Matrix plus(Matrix B);
+	
+	public Matrix getTranspose();
 }

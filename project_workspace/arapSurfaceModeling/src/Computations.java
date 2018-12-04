@@ -6,6 +6,7 @@ import Jcg.geometry.*;
 import Jcg.polyhedron.*;
 import Utils.Rotation_3;
 import matrixPkg.Matrix;
+import Utils.Pair;
 
 public class Computations {
 
@@ -40,6 +41,7 @@ public class Computations {
 			neighbors.add(e);
 			e = e.getOpposite().getNext();
 		}
+		neighbors.add(o);
 		return (neighbors);
 	}
 
@@ -96,8 +98,10 @@ public class Computations {
 //		return M.getMatrix(weights_array);
 //	}
 	
-	Rotation_3 getHalfedgeRotation(Halfedge<Point_3> h) {
-		return null;
+	Rotation_3 getHalfedgeRotation(Matrix S, Halfedge<Point_3> h) {
+		Pair<Matrix, Matrix> UV = S.getSVD();
+		Rotation_3 R = new Rotation_3(UV.getSecond().times(UV.getFirst().getTranspose()));
+		return R;
 	}
 
 }
