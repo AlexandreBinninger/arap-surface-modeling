@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import Jcg.geometry.*;
+import Jcg.polyhedron.*;
+import Utils.Rotation_3;
+import matrixPkg.Matrix;
+
+public class RigidTransformation {
+	
+	public Polyhedron_3<Point_3> polyhedron3D;
+	public HashMap<Vertex, Rotation_3> VertRotMap;
+}

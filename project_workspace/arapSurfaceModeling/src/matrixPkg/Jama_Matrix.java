@@ -4,18 +4,18 @@ import Jama.SingularValueDecomposition;
 import Utils.Pair;
 
 public class Jama_Matrix implements Matrix {
-	
+
 	Jama.Matrix M;
-	
-	public Jama_Matrix(Jama.Matrix MM){
-		this.M=MM;
+
+	public Jama_Matrix(Jama.Matrix MM) {
+		this.M = MM;
 	}
-	
-	public Jama_Matrix(double[][] array){
-		this.M= new Jama.Matrix(array);
+
+	public Jama_Matrix(double[][] array) {
+		this.M = new Jama.Matrix(array);
 	}
-	
-	public Jama_Matrix getMatrix(double[][] array){
+
+	public Jama_Matrix getMatrix(double[][] array) {
 		Jama_Matrix result = new Jama_Matrix(array);
 		return result;
 	}
@@ -25,13 +25,13 @@ public class Jama_Matrix implements Matrix {
 		SingularValueDecomposition svd = this.M.svd();
 		Matrix u = (Matrix) svd.getU();
 		Matrix v = (Matrix) svd.getV();
-		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u,v);
+		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u, v);
 		return uv;
 	}
-	
+
 	@Override
-	public double get(int i, int j){
-		return M.get(i,  j);
+	public double get(int i, int j) {
+		return M.get(i, j);
 	}
-	
+
 }
