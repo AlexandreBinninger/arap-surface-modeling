@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import Jcg.geometry.*;
@@ -41,15 +42,42 @@ public class Computations {
 		return(neighbors);
 	}
 
-	ArrayList<Double> getWeightsArray(Halfedge<Point_3> h) {
-		ArrayList<Double> weights = new ArrayList<Double>();
-		ArrayList<Halfedge<Point_3>> neighbors = getNeighbors(h);
+	HashMap<Halfedge<Point_3>, Double> getWeightsArray(Halfedge<Point_3> h, ArrayList<Halfedge<Point_3>> neighbors) {
+		HashMap<Halfedge<Point_3>, Double> weights = new HashMap<Halfedge<Point_3>, Double>();
 		Iterator<Halfedge<Point_3>> iter = neighbors.iterator();
 		while(iter.hasNext()) {
 			Halfedge<Point_3> e = iter.next();
-			weights.add(getWeight(e));
+			weights.put(e, (Double)getWeight(e));
 		}
 		return weights;
+	}
+	
+	Matrix getCovarianceMatrix(Matrix M, Halfedge<Point_3> h, Halfedge<Point_3> hPrime) {
+		ArrayList<Halfedge<Point_3>> neighbors = getNeighbors(h);
+		ArrayList<Halfedge<Point_3>> neighborsPrime = getNeighbors(hPrime); // hopefully the order is the same
+		int n = neighbors.size();
+		Matrix S = M.getMatrix(new double[n][n]);
+		HashMap<Halfedge<Point_3>, Double> weights = getWeightsArray(h, neighbors);
+		Vertex<Point_3> hVertex = h.getVertex();
+		Point_3 i = hVertex.getPoint();
+		Vertex<Point_3> hVertexPrime = hPrime.getVertex();
+		Point_3 iPrime = hVertexPrime.getPoint();
+		for (int k = 0; k < n; k++) {
+			Halfedge<Point_3> e = neighbors.get(k);
+			Halfedge<Point_3> ePrime = neighborsPrime.get(k);
+			Vertex<Point_3> eVertex = e.getVertex();
+			Point_3 j = eVertex.getPoint();
+			Vertex<Point_3> eVertexPrime = ePrime.getVertex();
+			Point_3 jPrime = eVertexPrime.getPoint();
+			Vector_3 eij = new Vector_3(i, j);
+			Vector_3 eijPrime = new Vector_3(iPrime, jPrime);
+			double[][] eij_column = {{(double) eij.getX()}, {(double) eij.getY()}, {(double) eij.getZ()}};
+			double[][] eijPrime_row = {{(double) eijPrime.getX(), (double) eijPrime.getY(), (double) eijPrime.getZ()}};
+			Matrix eij_column_M = M.getMatrix(eij_column);
+			Matrix eijPrime_row_M = M.getMatrix(eijPrime_row);
+			S = S.plus(eij_column_M.times(eijPrime_row_M).times(weights.get(e)));
+		}
+		return S;
 	}
 	
 //	Matrix getWeightsMatrix(Matrix M, Halfedge<Point_3> h) {
