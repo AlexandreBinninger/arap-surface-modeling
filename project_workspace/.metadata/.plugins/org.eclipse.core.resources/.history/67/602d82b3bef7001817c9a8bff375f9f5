@@ -6,14 +6,6 @@ import Utils.Pair;
 public class Jama_Matrix implements Matrix {
 	
 	Jama.Matrix M;
-	
-	public Jama_Matrix(Jama.Matrix MM){
-		this.M=MM;
-	}
-	
-	public Jama_Matrix(double[][] array){
-		this.M= new Jama.Matrix(array);
-	}
 
 	@Override
 	public Pair<Matrix, Matrix> getSVD() {
@@ -26,7 +18,7 @@ public class Jama_Matrix implements Matrix {
 	
 	@Override
 	public double get(int i, int j){
-		return M.get(i,  j);
+		M.get(i,  j);
 	}
 	
 }

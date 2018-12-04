@@ -12,7 +12,7 @@ public class Jama_Matrix implements Matrix {
 	}
 	
 	public Jama_Matrix(double[][] array){
-		this.M= new Jama.Matrix(array);
+		
 	}
 
 	@Override
