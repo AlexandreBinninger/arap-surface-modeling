@@ -9,4 +9,9 @@ public interface Matrix {
 	
 	public Matrix getMatrix(double[][] array);
 
+	public Matrix times(double s);
+	
+	public Matrix times(Matrix B);
+	
+	public Matrix plus(Matrix B);
 }

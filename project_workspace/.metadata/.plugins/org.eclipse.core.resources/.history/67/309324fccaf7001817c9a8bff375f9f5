@@ -27,12 +27,27 @@ public class Jama_Matrix implements Matrix {
 		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u, v);
 		return uv;
 	}
+<<<<<<< HEAD
+
+	@Override
+	public double get(int i, int j) {
+		return M.get(i, j);
+||||||| merged common ancestors
 	
 	@Override
 	public double get(int i, int j){
 		return M.get(i,  j);
-	}
+=======
 	
+	public double get(int i, int j){
+		return M.get(i,  j);
+>>>>>>> 53ada4933f4d7322e20ad1a9689f41cc62444211
+	}
+<<<<<<< HEAD
+
+||||||| merged common ancestors
+	
+=======
 	
 	public Jama_Matrix times(double s) {
 		return (new Jama_Matrix(this.M.times(s)));
@@ -53,4 +68,5 @@ public class Jama_Matrix implements Matrix {
 		System.err.println("Jama_Matrix plus (not Jama_Matrix)");
 		return null;
 	}
+>>>>>>> 53ada4933f4d7322e20ad1a9689f41cc62444211
 }
