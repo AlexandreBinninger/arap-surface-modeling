@@ -14,6 +14,9 @@ public class RigidTransformation {
 	public HashMap<Vertex, Rotation_3> VertRotMap;
 	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
 	public Jama_Matrix L;
+	public ArrayList<Integer> mobilePoints; // the points the user will be moving
+	public Jama_Matrix p;
+	public Jama_Matrix pPrime;
 	
 	
 	public void RigidTransformation(){//some constraints in parameters
@@ -37,7 +40,7 @@ public class RigidTransformation {
 		}
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsArray(e, Computations.getNeighbors(e));
-			int i = e.getVertex().index;
+			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex())
 			for (Halfedge<Point_3> f : tmp.keySet()){
 				int j = f.getVertex().index;
 				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
@@ -47,6 +50,8 @@ public class RigidTransformation {
 		}
 		
 		//Step 3
+		
+		
 		
 		//Step 4
 		
