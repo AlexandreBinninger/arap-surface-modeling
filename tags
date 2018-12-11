@@ -22,14 +22,6 @@ Quat	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		Quat(flo
 Quat	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	static class Quat {$/;"	c	class:ArcBall
 RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation.java	/^	public void RigidTransformation(){\/\/some constraints in parameters$/;"	m	class:RigidTransformation
 RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation.java	/^public class RigidTransformation {$/;"	c
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_BACKUP_2718.java	/^	public void RigidTransformation(){\/\/some constraints in parameters$/;"	m	class:RigidTransformation
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_BACKUP_2718.java	/^public class RigidTransformation {$/;"	c
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_BASE_2718.java	/^	public void RigidTransformation(){\/\/some constraints in parameters$/;"	m	class:RigidTransformation
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_BASE_2718.java	/^public class RigidTransformation {$/;"	c
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_LOCAL_2718.java	/^	public void RigidTransformation(){\/\/some constraints in parameters$/;"	m	class:RigidTransformation
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_LOCAL_2718.java	/^public class RigidTransformation {$/;"	c
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_REMOTE_2718.java	/^	public void RigidTransformation(){\/\/some constraints in parameters$/;"	m	class:RigidTransformation
-RigidTransformation	project_workspace/arapSurfaceModeling/src/RigidTransformation_REMOTE_2718.java	/^public class RigidTransformation {$/;"	c
 Rotation_3	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Rotation_3(Matrix M, double[][] array){$/;"	m	class:Rotation_3
 Rotation_3	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^	public Rotation_3(Matrix m) {$/;"	m	class:Rotation_3
 Rotation_3	project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java	/^public class Rotation_3 {$/;"	c
@@ -42,10 +34,6 @@ Vec3	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		Vec3() {
 Vec3	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		Vec3(float x, float y, float z) {$/;"	m	class:ArcBall.Vec3
 Vec3	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	static class Vec3 {$/;"	c	class:ArcBall
 VertRotMap	project_workspace/arapSurfaceModeling/src/RigidTransformation.java	/^	public HashMap<Vertex, Rotation_3> VertRotMap;$/;"	f	class:RigidTransformation
-VertRotMap	project_workspace/arapSurfaceModeling/src/RigidTransformation_BACKUP_2718.java	/^	public HashMap<Vertex, Rotation_3> VertRotMap;$/;"	f	class:RigidTransformation
-VertRotMap	project_workspace/arapSurfaceModeling/src/RigidTransformation_BASE_2718.java	/^	public HashMap<Vertex, Rotation_3> VertRotMap;$/;"	f	class:RigidTransformation
-VertRotMap	project_workspace/arapSurfaceModeling/src/RigidTransformation_LOCAL_2718.java	/^	public HashMap<Vertex, Rotation_3> VertRotMap;$/;"	f	class:RigidTransformation
-VertRotMap	project_workspace/arapSurfaceModeling/src/RigidTransformation_REMOTE_2718.java	/^	public HashMap<Vertex, Rotation_3> VertRotMap;$/;"	f	class:RigidTransformation
 applyQuat2Matrix	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	void applyQuat2Matrix(Quat q) {$/;"	m	class:ArcBall
 arap-surface-modeling	README.md	/^# arap-surface-modeling$/;"	c
 axis	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	int axis;$/;"	f	class:ArcBall
@@ -73,9 +61,6 @@ first	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	private K fir
 get	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public double get(int i, int j){$/;"	m	class:Jama_Matrix
 get	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public double get(int i, int j);$/;"	m	interface:Matrix
 getBi	project_workspace/arapSurfaceModeling/src/RigidTransformation.java	/^	public Point_3 getBi(Vertex i){$/;"	m	class:RigidTransformation
-getBi	project_workspace/arapSurfaceModeling/src/RigidTransformation_BASE_2718.java	/^	public Point_3 getBi(Vertex i){$/;"	m	class:RigidTransformation
-getBi	project_workspace/arapSurfaceModeling/src/RigidTransformation_LOCAL_2718.java	/^	public Point_3 getBi(Vertex i){$/;"	m	class:RigidTransformation
-getBi	project_workspace/arapSurfaceModeling/src/RigidTransformation_REMOTE_2718.java	/^	public Point_3 getBi(Vertex i){$/;"	m	class:RigidTransformation
 getCovarianceMatrix	project_workspace/arapSurfaceModeling/src/Computations.java	/^	Matrix getCovarianceMatrix(Matrix M, Halfedge<Point_3> h, Halfedge<Point_3> hPrime) {$/;"	m	class:Computations
 getFirst	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public K getFirst(){$/;"	m	class:Pair
 getHalfedgeRotation	project_workspace/arapSurfaceModeling/src/Computations.java	/^	Rotation_3 getHalfedgeRotation(Matrix S, Halfedge<Point_3> h) {$/;"	m	class:Computations
@@ -90,7 +75,7 @@ getSecond	project_workspace/arapSurfaceModeling/src/Utils/Pair.java	/^	public V 
 getTranspose	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Matrix getTranspose();$/;"	m	interface:Matrix
 getValue	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		float[] getValue() {$/;"	m	class:ArcBall.Quat
 getWeight	project_workspace/arapSurfaceModeling/src/Computations.java	/^	double getWeight(Halfedge<Point_3> h) {$/;"	m	class:Computations
-getWeightsArray	project_workspace/arapSurfaceModeling/src/Computations.java	/^	HashMap<Halfedge<Point_3>, Double> getWeightsArray(Halfedge<Point_3> h, ArrayList<Halfedge<Poin/;"	m	class:Computations
+getWeightsArray	project_workspace/arapSurfaceModeling/src/Computations.java	/^	static HashMap<Halfedge<Point_3>, Double> getWeightsArray(Halfedge<Point_3> h, ArrayList<Halfed/;"	m	class:Computations
 incrx	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public double incrx=0.;$/;"	f	class:SurfaceMesh
 incrxMoins	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrxMoins(double incr){$/;"	m	class:MeshViewer
 incrxPlus	project_workspace/arapSurfaceModeling/src/display/MeshViewer.java	/^		public void incrxPlus(double incr){$/;"	m	class:MeshViewer
@@ -119,10 +104,6 @@ parent	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	PApplet
 plus	project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java	/^	public Matrix plus(Matrix B) {$/;"	m	class:Jama_Matrix
 plus	project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java	/^	public Matrix plus(Matrix B);$/;"	m	interface:Matrix
 polyhedron3D	project_workspace/arapSurfaceModeling/src/RigidTransformation.java	/^	public Polyhedron_3<Point_3> polyhedron3D;$/;"	f	class:RigidTransformation
-polyhedron3D	project_workspace/arapSurfaceModeling/src/RigidTransformation_BACKUP_2718.java	/^	public Polyhedron_3<Point_3> polyhedron3D;$/;"	f	class:RigidTransformation
-polyhedron3D	project_workspace/arapSurfaceModeling/src/RigidTransformation_BASE_2718.java	/^	public Polyhedron_3<Point_3> polyhedron3D;$/;"	f	class:RigidTransformation
-polyhedron3D	project_workspace/arapSurfaceModeling/src/RigidTransformation_LOCAL_2718.java	/^	public Polyhedron_3<Point_3> polyhedron3D;$/;"	f	class:RigidTransformation
-polyhedron3D	project_workspace/arapSurfaceModeling/src/RigidTransformation_REMOTE_2718.java	/^	public Polyhedron_3<Point_3> polyhedron3D;$/;"	f	class:RigidTransformation
 polyhedron3D	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	public Polyhedron_3<Point_3> polyhedron3D; \/\/ triangle mesh$/;"	f	class:SurfaceMesh
 pre	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	public void pre() {$/;"	m	class:ArcBall
 q_down	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	Quat q_now, q_down, q_drag;$/;"	f	class:ArcBall
@@ -156,10 +137,6 @@ v_drag	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^	Vec3 v_
 view	project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java	/^	MeshViewer view; \/\/ Processing 3d frame (where meshes are rendered)$/;"	f	class:SurfaceMesh
 w	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		float w, x, y, z;$/;"	f	class:ArcBall.Quat
 weightij	project_workspace/arapSurfaceModeling/src/RigidTransformation.java	/^	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; \/\/ Hashmap<i, Has/;"	f	class:RigidTransformation
-weightij	project_workspace/arapSurfaceModeling/src/RigidTransformation_BACKUP_2718.java	/^	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; \/\/ Hashmap<i, Has/;"	f	class:RigidTransformation
-weightij	project_workspace/arapSurfaceModeling/src/RigidTransformation_BASE_2718.java	/^	public HashMap<Halfedge<Point_3>, HashMap<Halfedge<Point_3>, Double>> weightij; \/\/ Hashmap<i,/;"	f	class:RigidTransformation
-weightij	project_workspace/arapSurfaceModeling/src/RigidTransformation_LOCAL_2718.java	/^	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; \/\/ Hashmap<i, Has/;"	f	class:RigidTransformation
-weightij	project_workspace/arapSurfaceModeling/src/RigidTransformation_REMOTE_2718.java	/^	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; \/\/ Hashmap<i, Has/;"	f	class:RigidTransformation
 x	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		float w, x, y, z;$/;"	f	class:ArcBall.Quat
 x	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		float x, y, z;$/;"	f	class:ArcBall.Vec3
 y	project_workspace/arapSurfaceModeling/src/display/ArcBall.java	/^		float w, x, y, z;$/;"	f	class:ArcBall.Quat

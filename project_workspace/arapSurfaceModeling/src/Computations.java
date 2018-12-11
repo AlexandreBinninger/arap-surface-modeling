@@ -10,7 +10,7 @@ import Utils.Pair;
 
 public class Computations {
 
-	double getOppositeAngle(Halfedge<Point_3> h) {
+	static double getOppositeAngle(Halfedge<Point_3> h) {
 		Vertex<Point_3> va = h.getVertex();
 		h = h.getNext();
 		Vertex<Point_3> vb = h.getVertex();
@@ -24,7 +24,7 @@ public class Computations {
 		return (Double) e1.innerProduct(e2);
 	}
 
-	double getWeight(Halfedge<Point_3> h) {
+	static double getWeight(Halfedge<Point_3> h) {
 		// TODO : if boundary edge, opposite halfedge exists but face is null, fix the
 		// method if needed
 		double alpha = getOppositeAngle(h);

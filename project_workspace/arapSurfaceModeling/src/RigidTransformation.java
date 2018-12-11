@@ -5,6 +5,7 @@ import java.util.Iterator;
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
 import Utils.Rotation_3;
+import matrixPkg.Jama_Matrix;
 import matrixPkg.Matrix;
 
 public class RigidTransformation {
@@ -12,6 +13,7 @@ public class RigidTransformation {
 	public Polyhedron_3<Point_3> polyhedron3D;
 	public HashMap<Vertex, Rotation_3> VertRotMap;
 	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
+	public Jama_Matrix L;
 	
 	
 	public void RigidTransformation(){//some constraints in parameters
@@ -26,29 +28,29 @@ public class RigidTransformation {
 		 * 
 		 */
 		
-		// Step 1
+		L = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), polyhedron3D.vertices.size()));
+		
+		// Step 1 & 2
 		
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
 		}
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsArray(e, Computations.getNeighbors(e));
+			int i = e.getVertex().index;
 			for (Halfedge<Point_3> f : tmp.keySet()){
+				int j = f.getVertex().index;
 				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
+				L.set(i, j, -tmp.get(f));
+				L.set(i, i, L.get(i, i)+tmp.get(f));
 			}
 		}
 		
-		//Step 2
-		// To solve with Cholesky decomposition
-		
 		//Step 3
-		
 		
 		//Step 4
 		
 		//Step 5
-		
-		
 		
 	}
 	

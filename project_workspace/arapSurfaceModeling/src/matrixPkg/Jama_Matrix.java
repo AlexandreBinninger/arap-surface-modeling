@@ -33,6 +33,9 @@ public class Jama_Matrix implements Matrix {
 		return M.get(i,  j);
 	}
 	
+	public void set(int i, int j, double s) {
+		M.set(i, j, s);
+	}
 	
 	public Jama_Matrix times(double s) {
 		return (new Jama_Matrix(this.M.times(s)));
@@ -52,5 +55,9 @@ public class Jama_Matrix implements Matrix {
 		}
 		System.err.println("Jama_Matrix plus (not Jama_Matrix)");
 		return null;
+	}
+	
+	public Jama_Matrix getTranspose() {
+		return (new Jama_Matrix(this.M.transpose()));
 	}
 }
