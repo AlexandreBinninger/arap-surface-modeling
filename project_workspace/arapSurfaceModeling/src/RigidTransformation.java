@@ -14,11 +14,11 @@ public class RigidTransformation {
 	public HashMap<Vertex, Rotation_3> VertRotMap;
 	public HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>> globalNeighbors; // Hashmap<i, neighborsOfI>
 	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
-	public Jama_Matrix L;
+	public Matrix L;
 	public ArrayList<Integer> mobilePoints; // the points the user is allowed to move
 	public ArrayList<Integer> fixedPoints; // the points the user wants to stay at a given position
-	public Jama_Matrix p;
-	public Jama_Matrix pPrime;
+	public Matrix p;
+	public Matrix pPrime;
 
 	/*
 	 * 1) Precompute the weight coefficients w_ij
@@ -80,14 +80,7 @@ public class RigidTransformation {
 				L.set(i, i, L.get(i, i)+tmp.get(f));
 			}
 		}
-
-		// Step 3
-		for (Vertex<Point_3> v : polyhedron3D.vertices){
-			Point_3 vPoint = v.getPoint();
-			pPrime.set(v.index, 0, (double) vPoint.getX());
-			pPrime.set(v.index, 1, (double) vPoint.getY());
-			pPrime.set(v.index, 2, (double) vPoint.getZ());
-		}
+		
 		
 	}
 	

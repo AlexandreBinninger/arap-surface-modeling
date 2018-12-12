@@ -7,6 +7,8 @@ public interface Matrix {
 	
 	public double get(int i, int j);
 	
+	public void set(int i, int j, double s);
+	
 	public Matrix getMatrix(double[][] array);
 
 	public Matrix times(double s);
