@@ -112,15 +112,11 @@ public class RigidTransformation {
 			pPrime.set(v.index, 0, (Double) vPoint.getX());
 			pPrime.set(v.index, 1, (Double) vPoint.getY());
 			pPrime.set(v.index, 2, (Double) vPoint.getZ());
-			//TODO : bizarre non ? i==index non ?
-			int i = v.index;
-			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
-				for (int k = 0; k<L.getColumnDimension(); k++) {
-					L.set(i, k, 0);
-					L.set(k, i, 0);
-				}
-				L.set(i, i, 1);
+			for (int k = 0; k<L.getColumnDimension(); k++) {
+				L.set(index, k, 0);
+				L.set(k, index, 0);
 			}
+			L.set(index, index, 1);
 			// the few next lines should be uncommented if we need to update the weights too
 //			Halfedge<Point_3> e = v.getHalfedge();
 //			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
@@ -132,6 +128,14 @@ public class RigidTransformation {
 //				L.set(i, j, -tmp.get(f));
 //				L.set(i, i, L.get(i, i)+tmp.get(f));
 //			}
+		}
+
+		for (Integer index : fixedPoints){
+			for (int k = 0; k<L.getColumnDimension(); k++) {
+				L.set(index, k, 0);
+				L.set(k, index, 0);
+			}
+			L.set(index, index, 1);
 		}
 		
 		// Step 4
