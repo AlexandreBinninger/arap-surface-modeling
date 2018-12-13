@@ -1,5 +1,6 @@
 package core;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 //import java.util.Iterator;
 
@@ -64,6 +65,7 @@ public class RigidTransformation {
 				int j = f.getVertex().index;
 				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
 				L.set(i, j, -tmp.get(f));
+				L.set(j, i, -tmp.get(f));
 				L.set(i, i, L.get(i, i)+tmp.get(f));
 			}
 		}
@@ -83,6 +85,7 @@ public class RigidTransformation {
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {
 					L.set(i, k, 0);
+					L.set(k, i, 0);
 				}
 				L.set(i, i, 1);
 			} else {
@@ -90,6 +93,7 @@ public class RigidTransformation {
 					int j = f.getVertex().index;
 					weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
 					L.set(i, j, -tmp.get(f));
+					L.set(j, i, -tmp.get(f));
 					L.set(i, i, L.get(i, i)+tmp.get(f));
 				}
 			}
@@ -108,6 +112,7 @@ public class RigidTransformation {
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {
 					L.set(i, k, 0);
+					L.set(k, i, 0);
 				}
 				L.set(i, i, 1);
 			}
@@ -126,7 +131,7 @@ public class RigidTransformation {
 		
 		// Step 4
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
-			System.out.println("step 4");
+//			System.out.println("step 4");
 			int i = v.index;
 
 //			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
@@ -138,13 +143,14 @@ public class RigidTransformation {
 		
 		// Step 5
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
-			System.out.println("step 5");
+//			System.out.println("step 5");
 			int i = v.index;
 			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
 			b.set(i, 0, (Double) bi.getX());
 			b.set(i, 1, (Double) bi.getY());
 			b.set(i, 2, (Double) bi.getZ());
 		}
+//		System.out.println(Arrays.deepToString(((Jama_Matrix)L).getM().getArray()));
 		Matrix pSecond = L.solve(b);
 		
 		for (Integer index : fixedPoints){

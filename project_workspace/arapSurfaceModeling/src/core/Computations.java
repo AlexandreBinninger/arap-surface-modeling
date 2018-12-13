@@ -1,5 +1,6 @@
 package core;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -32,7 +33,12 @@ public class Computations {
 		double alpha = getOppositeAngle(h);
 		h = h.getOpposite();
 		double beta = getOppositeAngle(h);
-		return (0.5 * (1 / Math.atan(alpha)) * (1 / Math.atan(beta)));
+		double weight = 0.5 * (1 / Math.atan(alpha)) * (1 / Math.atan(beta));
+		if (Double.isInfinite(weight)) {
+			return 0;
+		} else {
+			return weight;
+		}
 	}
 
 	static ArrayList<Halfedge<Point_3>> getNeighbors(Halfedge<Point_3> h) {
@@ -122,9 +128,14 @@ public class Computations {
 //	Matrix getCovarianceMatrix(Matrix P, Matrix PPrime, Matrix D) {
 	static Matrix getCovarianceMatrix(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix P = getColumnMatrix(points, i, neighbors);
+//		System.out.println(Arrays.deepToString(((Jama_Matrix)P).getM().getArray()));
 		Matrix PPrime = getColumnMatrix(pointsPrime, i, neighbors);
+//		System.out.println(Arrays.deepToString(((Jama_Matrix)PPrime).getM().getArray()));
 		Matrix D = getWeightsMatrix(neighbors, weights);
+//		System.out.println(Arrays.deepToString(((Jama_Matrix)D).getM().getArray()));
+//		System.out.println(Arrays.deepToString((((Jama_Matrix)(D.times(PPrime))).getM().getArray())));
 		Matrix S = P.getTranspose().times(D.times(PPrime));
+//		System.out.println(Arrays.deepToString(((Jama_Matrix)S).getM().getArray()));
 		return S;
 	}
 	
@@ -174,9 +185,10 @@ public class Computations {
 //	Rotation_3 getHalfedgeRotation(Matrix S, Halfedge<Point_3> h) {
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
-		System.out.println("before svd");
+//		System.out.println(Arrays.deepToString(((Jama_Matrix)S).getM().getArray()));
+//		System.out.println("before svd");
 		Pair<Matrix, Matrix> UV = S.getSVD();
-		System.out.println("after svd");
+//		System.out.println("after svd");
 		Rotation_3 R = new Rotation_3(UV.getSecond().times(UV.getFirst().getTranspose()));
 		return R;
 	}

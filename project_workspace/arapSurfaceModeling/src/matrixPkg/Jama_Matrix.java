@@ -1,5 +1,7 @@
 package matrixPkg;
 
+import java.util.Arrays;
+
 import Jama.*;
 import Utils.Pair;
 
@@ -13,6 +15,10 @@ public class Jama_Matrix implements Matrix {
 
 	public Jama_Matrix(double[][] array) {
 		this.M = new Jama.Matrix(array);
+	}
+	
+	public Jama.Matrix getM() {
+		return M;
 	}
 
 	public Matrix clone() {
@@ -33,9 +39,10 @@ public class Jama_Matrix implements Matrix {
 	}
 
 	public Pair<Matrix, Matrix> getSVD() {
-		System.out.println("before svd1");
+//		System.out.println("before svd1");
+//		System.out.println(Arrays.deepToString(this.M.getArray()));
 		SingularValueDecomposition svd = this.M.svd();
-		System.out.println("after svd1");
+//		System.out.println("after svd1");
 		Matrix u = (Matrix) new Jama_Matrix(svd.getU());
 		Matrix v = (Matrix) new Jama_Matrix(svd.getV());
 		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u, v);

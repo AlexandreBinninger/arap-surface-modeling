@@ -23,14 +23,14 @@ public class MeshViewer extends PApplet{
 	
 //	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
-	String filename="OFF/cube.off";
+//	String filename="OFF/cube.off";
 //	String filename="OFF/torus_33.off";
 //	String filename="OFF/tore.off";
 //	String filename="OFF/tri_hedra.off";
 //	String filename="OFF/letter_a.off";
 //	String filename="OFF/star.off";
 //	String filename="OFF/tri_triceratops.off";
-//	String filename="OFF/cactus_small.off";
+	String filename="OFF/cactus_small.off";
 //	String filename="OFF/dino.off";
 //	String filename="OFF/square_21_spikes.off";
 //	String filename="OFF/cow.off";
@@ -94,7 +94,7 @@ public class MeshViewer extends PApplet{
 		public void transform(int loops) {
 			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
 			Point_3 pi = v.getPoint();
-			pi.setX((double)pi.getX() + 10);
+			pi.setX((double)pi.getX() + 1);
 			for(int i=0; i < loops; i++) {
 				arap.arapIteration();
 			}
