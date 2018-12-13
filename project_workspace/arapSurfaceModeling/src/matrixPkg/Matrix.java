@@ -23,5 +23,5 @@ public interface Matrix {
 	
 	public Matrix getTranspose();
 	
-	public Matrix solve(Matrix B));
+	public Matrix solve(Matrix B);
 }
