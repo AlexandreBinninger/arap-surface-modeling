@@ -22,8 +22,8 @@ public class MeshViewer extends PApplet{
 	RigidTransformation arap;
 	
 //	String filename="OFF/high_genus.off";
-	String filename="OFF/sphere.off";
-//	String filename="OFF/cube.off";
+//	String filename="OFF/sphere.off";
+	String filename="OFF/cube.off";
 //	String filename="OFF/torus_33.off";
 //	String filename="OFF/tore.off";
 //	String filename="OFF/tri_hedra.off";
@@ -40,11 +40,12 @@ public class MeshViewer extends PApplet{
 		  ArcBall arcball = new ArcBall(this);
 		  this.mesh=new SurfaceMesh(this, filename);		  
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
+		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-		  arap.fixedPoints.add(50);
-		  arap.fixedPoints.add(51);
-		  arap.fixedPoints.add(52);
-		  arap.fixedPoints.add(53);
+//		  arap.fixedPoints.add(50);
+//		  arap.fixedPoints.add(51);
+//		  arap.fixedPoints.add(52);
+//		  arap.fixedPoints.add(53);
 	}
 		 
 		public void draw() {

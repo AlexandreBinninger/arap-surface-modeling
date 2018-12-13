@@ -126,6 +126,7 @@ public class RigidTransformation {
 		
 		// Step 4
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
+			System.out.println("step 4");
 			int i = v.index;
 
 //			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
@@ -137,6 +138,7 @@ public class RigidTransformation {
 		
 		// Step 5
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
+			System.out.println("step 5");
 			int i = v.index;
 			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
 			b.set(i, 0, (Double) bi.getX());
