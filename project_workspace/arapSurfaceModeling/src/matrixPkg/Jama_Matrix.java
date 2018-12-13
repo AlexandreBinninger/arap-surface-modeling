@@ -49,6 +49,12 @@ public class Jama_Matrix implements Matrix {
 		return uv;
 	}
 	
+	public Matrix getS() {
+		SingularValueDecomposition svd = this.M.svd();
+		Matrix s = (Matrix) new Jama_Matrix(svd.getS());
+		return s;
+	}
+	
 	@Override
 	public double get(int i, int j){
 		return M.get(i,  j);

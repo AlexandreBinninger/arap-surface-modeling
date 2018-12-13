@@ -34,7 +34,7 @@ public class Computations {
 		h = h.getOpposite();
 		double beta = getOppositeAngle(h);
 		double weight = 0.5 * ((1 / Math.atan(alpha)) + (1 / Math.atan(beta)));
-		if (Double.isInfinite(weight)) {
+		if (Double.isInfinite(weight) || Double.isNaN(weight)) {
 			return 0;
 		} else {
 			return weight;
@@ -107,7 +107,7 @@ public class Computations {
 		Matrix P = new Jama_Matrix(new double[n][3]);
 		for (int k=0; k < n; k++) {
 			int j = neighbors.get(k).getVertex().index;
-			P.set(k, 0, (double) (points.get(i, 0) - points.get(j, 0)));
+			P.set(k, 0, (double) (points.get(i, 0) - points.get(j, 0))); // eij = pi - pj
 			P.set(k, 1, (double) (points.get(i, 1) - points.get(j, 1)));
 			P.set(k, 2, (double) (points.get(i, 2) - points.get(j, 2)));
 		}
@@ -190,7 +190,24 @@ public class Computations {
 //		System.out.println("before svd");
 		Pair<Matrix, Matrix> UV = S.getSVD();
 //		System.out.println("after svd");
-		Rotation_3 R = new Rotation_3(UV.getSecond().times(UV.getFirst().getTranspose()));
+		Matrix U = UV.getFirst();
+		Matrix V = UV.getSecond();
+		Rotation_3 R = new Rotation_3(V.times(U.getTranspose()));
+		if (R.getMatrix().determinant() < 0) {
+			Matrix Sigma = S.getS();
+			int lambda_index = 0;
+			double lambda = Math.abs(S.get(0, 0));
+			for(int k = 1; k<S.getColumnDimension(); k++) {
+				if(Math.abs(S.get(k, k)) < lambda) {
+					lambda = Math.abs(S.get(k, k));
+					lambda_index = k;
+				}
+			}
+			for(int k = 0; k < U.getRowDimension(); k++) {
+				U.set(k, lambda_index, -U.get(k, lambda_index));
+			}
+			R = new Rotation_3(V.times(U.getTranspose()));
+		}
 		return R;
 	}
 	

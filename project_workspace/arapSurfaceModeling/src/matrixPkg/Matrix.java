@@ -13,6 +13,8 @@ public interface Matrix {
 	
 	public double determinant();
 	
+	public Matrix getS();
+	
 	public double get(int i, int j);
 	
 	public void set(int i, int j, double s);
