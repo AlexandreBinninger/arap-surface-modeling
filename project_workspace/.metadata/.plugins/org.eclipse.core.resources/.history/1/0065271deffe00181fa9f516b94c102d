@@ -153,18 +153,4 @@ public class RigidTransformation {
 		
 	}
 	
-	public boolean isSymmetric(Matrix M){
-		int imax = M.getColumnDimension();
-		int jmax = M.getRowDimension();
-		for (int i =0; i<imax; i++){
-			for (int j=0; j<jmax; j++){
-				if (M.get(i, j) != M.get(j, i)){
-					System.out.println("Matrix is not symmetric at indexes (i, j) = ("+(i)+", "+(j)+" --> M(i, j) = "+(M.get(i, j))+" and M(j, i) = "+M.get(j, i));
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-	
 }
