@@ -43,12 +43,12 @@ public class RigidTransformation {
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
 			Point_3 vPoint = v.getPoint();
-			p.set(v.index, 0, (Double) vPoint.getX());
-			p.set(v.index, 1, (Double) vPoint.getY());
-			p.set(v.index, 2, (Double) vPoint.getZ());
-			pPrime.set(v.index, 0, (Double) vPoint.getX());
-			pPrime.set(v.index, 1, (Double) vPoint.getY());
-			pPrime.set(v.index, 2, (Double) vPoint.getZ());
+			p.set(v.index, 0, (double) vPoint.getX());
+			p.set(v.index, 1, (double) vPoint.getY());
+			p.set(v.index, 2, (double) vPoint.getZ());
+			pPrime.set(v.index, 0, (double) vPoint.getX());
+			pPrime.set(v.index, 1, (double) vPoint.getY());
+			pPrime.set(v.index, 2, (double) vPoint.getZ());
 		}
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			globalNeighbors.put(e.getVertex(), Computations.getNeighbors(e));
@@ -88,9 +88,9 @@ public class RigidTransformation {
 		for (Integer index : mobilePoints){
 			Vertex<Point_3> v = polyhedron3D.vertices.get(index);
 			Point_3 vPoint = v.getPoint();
-			pPrime.set(v.index, 0, (Double) vPoint.getX());
-			pPrime.set(v.index, 1, (Double) vPoint.getY());
-			pPrime.set(v.index, 2, (Double) vPoint.getZ());
+			pPrime.set(v.index, 0, (double) vPoint.getX());
+			pPrime.set(v.index, 1, (double) vPoint.getY());
+			pPrime.set(v.index, 2, (double) vPoint.getZ());
 
 			// the few next lines should be uncommented if we need to update the weights too
 //			Halfedge<Point_3> e = v.getHalfedge();
@@ -121,9 +121,9 @@ public class RigidTransformation {
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 			int i = v.index;
 			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
-			b.set(i, 0, (Double) bi.getX());
-			b.set(i, 1, (Double) bi.getY());
-			b.set(i, 2, (Double) bi.getZ());
+			b.set(i, 0, (double) bi.getX());
+			b.set(i, 1, (double) bi.getY());
+			b.set(i, 2, (double) bi.getZ());
 		}
 		Matrix pSecond = L.solve(b);
 		
