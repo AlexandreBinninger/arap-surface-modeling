@@ -5,6 +5,7 @@ import processing.core.*;
 
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
+import core.RigidTransformation;
 
 /**
  * A simple 3d viewer for visualizing surface meshes (based on Processing)
@@ -106,6 +107,19 @@ public class MeshViewer extends PApplet{
 			//PApplet pa=new MeshViewer();
 			//pa.setSize(400, 400);
 		PApplet.main(new String[] { "MeshViewer" });
+//		RigidTransformation arap = new RigidTransformation();
+//		int loops = Integer.parseInt(args[0]);
+//		int duration = 500;
+//		arap.mobilePoints.add(0);
+//		Vertex<Point_3> v = arap.polyhedron3D.vertices.get(0);
+//		for(int k=0; k < duration; k++) {
+//			Point_3 pi = v.getPoint();
+//			pi.setX((double)pi.getX() + 10);
+//			for(int i=0; i < loops; i++) {
+//				arap.arapIteration();
+//			}
+//			arap.updateEverything();
+//		}
 	}
 
 }

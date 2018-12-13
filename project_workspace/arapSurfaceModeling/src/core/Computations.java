@@ -1,3 +1,4 @@
+package core;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -178,7 +179,7 @@ public class Computations {
 		return R;
 	}
 	
-	static Point_3 getBi(Vertex<Point_3> v, HashMap<Vertex, Rotation_3> VertRotMap, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights){
+	static Point_3 getBi(Vertex<Point_3> v, HashMap<Vertex<Point_3>, Rotation_3> VertRotMap, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights){
 		Point_3 b = new Point_3(0., 0., 0.);
 		Rotation_3 R_i = VertRotMap.get(v);
 		for (Halfedge<Point_3> h : neighbors){

@@ -1,6 +1,7 @@
+package core;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
+//import java.util.Iterator;
 
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
@@ -11,7 +12,7 @@ import matrixPkg.Matrix;
 public class RigidTransformation {
 	
 	public Polyhedron_3<Point_3> polyhedron3D;
-	public HashMap<Vertex, Rotation_3> VertRotMap;
+	public HashMap<Vertex<Point_3>, Rotation_3> VertRotMap;
 	public HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>> globalNeighbors; // Hashmap<i, neighborsOfI>
 	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
 	public Matrix L;
@@ -62,6 +63,26 @@ public class RigidTransformation {
 		}
 	}
 	
+	public void updateEverything() {
+		p = pPrime.clone();
+		for (Vertex<Point_3> v : polyhedron3D.vertices){
+			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
+			int i = v.index;
+			Point_3 pi = new Point_3(p.get(i, 0), p.get(i, 1), p.get(i, 2));
+			v.setPoint(pi);
+		}
+		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
+			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
+			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex()). If it doesn't work, just initialize a global array
+			for (Halfedge<Point_3> f : tmp.keySet()){
+				int j = f.getVertex().index;
+				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
+				L.set(i, j, -tmp.get(f));
+				L.set(i, i, L.get(i, i)+tmp.get(f));
+			}
+		}	
+	}
+	
 	public void arapIteration() {
 		// Step 3
 		for (Integer index : mobilePoints){
@@ -70,10 +91,10 @@ public class RigidTransformation {
 			pPrime.set(v.index, 0, (double) vPoint.getX());
 			pPrime.set(v.index, 1, (double) vPoint.getY());
 			pPrime.set(v.index, 2, (double) vPoint.getZ());
-			Halfedge<Point_3> e = v.getHalfedge();
-			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 
 			// the few next lines should be uncommented if we need to update the weights too
+//			Halfedge<Point_3> e = v.getHalfedge();
+//			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 //			int i = v.index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex())
 //			L.set(i, i, 0);
 //			for (Halfedge<Point_3> f : tmp.keySet()){
@@ -122,6 +143,8 @@ public class RigidTransformation {
 		
 	}
 	
-	
+	public static void main(String[] args) {
+		
+	}
 	
 }

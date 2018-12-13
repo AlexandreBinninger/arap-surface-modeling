@@ -5,6 +5,8 @@ public interface Matrix {
 	
 	public Pair<Matrix, Matrix> getSVD();
 	
+	public Matrix clone();
+	
 	public int getRowDimension();
 	
 	public int getColumnDimension();

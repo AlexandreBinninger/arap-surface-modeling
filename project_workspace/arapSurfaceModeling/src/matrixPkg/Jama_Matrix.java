@@ -14,7 +14,11 @@ public class Jama_Matrix implements Matrix {
 	public Jama_Matrix(double[][] array) {
 		this.M = new Jama.Matrix(array);
 	}
-	
+
+	public Matrix clone() {
+		return new Jama_Matrix(M);
+	}
+
 	public int getRowDimension() {
 		return M.getRowDimension();
 	}
