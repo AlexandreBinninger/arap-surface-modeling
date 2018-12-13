@@ -19,6 +19,7 @@ public class MeshViewer extends PApplet{
 	SurfaceMesh mesh; // 3d surface mesh
 	int renderType=0; // choice of type of rendering
 	int renderModes=2; // number of rendering modes
+	RigidTransformation arap;
 	
 //	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
@@ -26,10 +27,10 @@ public class MeshViewer extends PApplet{
 //	String filename="OFF/torus_33.off";
 //	String filename="OFF/tore.off";
 //	String filename="OFF/tri_hedra.off";
-	String filename="OFF/letter_a.off";
+//	String filename="OFF/letter_a.off";
 //	String filename="OFF/star.off";
 //	String filename="OFF/tri_triceratops.off";
-//	String filename="OFF/cactus_small.off";
+	String filename="OFF/cactus_small.off";
 //	String filename="OFF/dino.off";
 //	String filename="OFF/square_21_spikes.off";
 //	String filename="OFF/cow.off";
@@ -38,6 +39,12 @@ public class MeshViewer extends PApplet{
 		  size(800,600,P3D);
 		  ArcBall arcball = new ArcBall(this);
 		  this.mesh=new SurfaceMesh(this, filename);		  
+		  arap = new RigidTransformation(mesh.polyhedron3D);;
+		  arap.mobilePoints.add(0);
+		  arap.fixedPoints.add(50);
+		  arap.fixedPoints.add(51);
+		  arap.fixedPoints.add(52);
+		  arap.fixedPoints.add(53);
 	}
 		 
 		public void draw() {
@@ -83,6 +90,16 @@ public class MeshViewer extends PApplet{
 		public void incrzMoins(double incr){
 			this.mesh.incrz-=incr;
 		}
+		public void transform(int loops) {
+			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
+			Point_3 pi = v.getPoint();
+			pi.setX((double)pi.getX() + 10);
+			for(int i=0; i < loops; i++) {
+				arap.arapIteration();
+			}
+			arap.updateEverything();
+			mesh.polyhedron3D = arap.polyhedron3D;
+		}
 		
 		public void keyPressed(){
 			  switch(key) {
@@ -96,6 +113,7 @@ public class MeshViewer extends PApplet{
 			    case('P'):this.incrzMoins(0.1); break;
 //			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
+			    case('t'):this.transform(1); break;
 			  }
 		}
 		
@@ -107,19 +125,7 @@ public class MeshViewer extends PApplet{
 			//PApplet pa=new MeshViewer();
 			//pa.setSize(400, 400);
 		PApplet.main(new String[] { "MeshViewer" });
-//		RigidTransformation arap = new RigidTransformation();
-//		int loops = Integer.parseInt(args[0]);
-//		int duration = 500;
-//		arap.mobilePoints.add(0);
-//		Vertex<Point_3> v = arap.polyhedron3D.vertices.get(0);
-//		for(int k=0; k < duration; k++) {
-//			Point_3 pi = v.getPoint();
-//			pi.setX((double)pi.getX() + 10);
-//			for(int i=0; i < loops; i++) {
-//				arap.arapIteration();
-//			}
-//			arap.updateEverything();
-//		}
+		
 	}
 
 }

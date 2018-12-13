@@ -33,9 +33,11 @@ public class Jama_Matrix implements Matrix {
 	}
 
 	public Pair<Matrix, Matrix> getSVD() {
+		System.out.println("haha");
 		SingularValueDecomposition svd = this.M.svd();
-		Matrix u = (Matrix) svd.getU();
-		Matrix v = (Matrix) svd.getV();
+		System.out.println("svd");
+		Matrix u = (Matrix) new Jama_Matrix(svd.getU());
+		Matrix v = (Matrix) new Jama_Matrix(svd.getV());
 		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u, v);
 		return uv;
 	}

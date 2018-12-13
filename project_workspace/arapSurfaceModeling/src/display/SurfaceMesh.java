@@ -165,7 +165,7 @@ public class SurfaceMesh {
 	public static double round(double x, int precision) {
 		return ((int)(x*precision)/(double)precision);
 	}
-	
+
 	/**
 	 * Compute the scale factor (depending on the max distance of the point set)
 	 */

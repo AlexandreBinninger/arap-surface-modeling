@@ -98,7 +98,7 @@ public class Computations {
 	static Matrix getColumnMatrix(Matrix points, int i, ArrayList<Halfedge<Point_3>> neighbors) {
 		// points contains the vertices, P is the Pi of one vertex
 		int n = neighbors.size();
-		Matrix P = new Jama_Matrix(new double[3][n]);
+		Matrix P = new Jama_Matrix(new double[n][3]);
 		for (int k=0; k < n; k++) {
 			int j = neighbors.get(k).getVertex().index;
 			P.set(k, 0, (double) (points.get(i, 0) - points.get(j, 0)));
@@ -124,7 +124,7 @@ public class Computations {
 		Matrix P = getColumnMatrix(points, i, neighbors);
 		Matrix PPrime = getColumnMatrix(pointsPrime, i, neighbors);
 		Matrix D = getWeightsMatrix(neighbors, weights);
-		Matrix S = P.times(D.times(PPrime.getTranspose()));
+		Matrix S = P.getTranspose().times(D.times(PPrime));
 		return S;
 	}
 	
@@ -173,7 +173,9 @@ public class Computations {
 	
 //	Rotation_3 getHalfedgeRotation(Matrix S, Halfedge<Point_3> h) {
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
+		System.out.println("coucou");
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
+		System.out.println(i);
 		Pair<Matrix, Matrix> UV = S.getSVD();
 		Rotation_3 R = new Rotation_3(UV.getSecond().times(UV.getFirst().getTranspose()));
 		return R;
