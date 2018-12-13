@@ -90,6 +90,9 @@ public class RigidTransformation {
 					L.set(k, i, 0);
 				}
 				L.set(i, i, 1);
+				for (Halfedge<Point_3> f : tmp.keySet()){
+					weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
+				}
 			} else {
 				L.set(i, i, 0);
 				for (Halfedge<Point_3> f : tmp.keySet()){
@@ -100,6 +103,7 @@ public class RigidTransformation {
 					L.set(i, i, L.get(i, i)+tmp.get(f));
 				}
 			}
+			System.out.println(weightij.get(e.getVertex()));
 		}	
 	}
 	
