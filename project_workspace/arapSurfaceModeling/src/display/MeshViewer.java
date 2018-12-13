@@ -22,7 +22,7 @@ public class MeshViewer extends PApplet{
 	RigidTransformation arap;
 	
 //	String filename="OFF/high_genus.off";
-//	String filename="OFF/sphere.off";
+	String filename="OFF/sphere.off";
 //	String filename="OFF/cube.off";
 //	String filename="OFF/torus_33.off";
 //	String filename="OFF/tore.off";
@@ -30,7 +30,7 @@ public class MeshViewer extends PApplet{
 //	String filename="OFF/letter_a.off";
 //	String filename="OFF/star.off";
 //	String filename="OFF/tri_triceratops.off";
-	String filename="OFF/cactus_small.off";
+//	String filename="OFF/cactus_small.off";
 //	String filename="OFF/dino.off";
 //	String filename="OFF/square_21_spikes.off";
 //	String filename="OFF/cow.off";
@@ -42,7 +42,7 @@ public class MeshViewer extends PApplet{
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
 		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-//		  arap.fixedPoints.add(50);
+		  arap.fixedPoints.add(4);
 //		  arap.fixedPoints.add(51);
 //		  arap.fixedPoints.add(52);
 //		  arap.fixedPoints.add(53);

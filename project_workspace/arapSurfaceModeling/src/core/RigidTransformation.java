@@ -61,6 +61,7 @@ public class RigidTransformation {
 			globalNeighbors.put(e.getVertex(), Computations.getNeighbors(e));
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex()). If it doesn't work, just initialize a global array
+			L.set(i, i, 0);
 			for (Halfedge<Point_3> f : tmp.keySet()){
 				int j = f.getVertex().index;
 				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
@@ -82,6 +83,7 @@ public class RigidTransformation {
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex()). If it doesn't work, just initialize a global array
+			L.set(i, i, 0);
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {
 					L.set(i, k, 0);
@@ -155,6 +157,7 @@ public class RigidTransformation {
 			b.set(i, 2, (Double) bi.getZ());
 		}
 //		System.out.println(Arrays.deepToString(((Jama_Matrix)L).getM().getArray()));
+		System.out.println(isSymmetric(L));
 		Matrix pSecond = L.solve(b);
 		
 		for (Integer index : fixedPoints){
@@ -174,8 +177,8 @@ public class RigidTransformation {
 	}
 	
 	public boolean isSymmetric(Matrix M){
-		int imax = M.getColumnDimension();
-		int jmax = M.getRowDimension();
+		int jmax = M.getColumnDimension();
+		int imax = M.getRowDimension();
 		for (int i =0; i<imax; i++){
 			for (int j=0; j<jmax; j++){
 				if (M.get(i, j) != M.get(j, i)){
@@ -184,6 +187,7 @@ public class RigidTransformation {
 				}
 			}
 		}
+		System.out.println("symmetric");
 		return true;
 	}
 	
