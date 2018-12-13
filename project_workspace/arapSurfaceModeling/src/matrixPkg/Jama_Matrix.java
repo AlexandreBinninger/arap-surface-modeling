@@ -14,6 +14,14 @@ public class Jama_Matrix implements Matrix {
 	public Jama_Matrix(double[][] array) {
 		this.M = new Jama.Matrix(array);
 	}
+	
+	public int getRowDimension() {
+		return M.getRowDimension();
+	}
+	
+	public int getColumnDimension() {
+		return M.getColumnDimension();
+	}
 
 	public Jama_Matrix getMatrix(double[][] array) {
 		Jama_Matrix result = new Jama_Matrix(array);
@@ -59,5 +67,14 @@ public class Jama_Matrix implements Matrix {
 	
 	public Jama_Matrix getTranspose() {
 		return (new Jama_Matrix(this.M.transpose()));
+	}
+	
+	public Matrix solve(Matrix B) {
+		if (B instanceof Jama_Matrix) {
+			Jama.CholeskyDecomposition A = new Jama.CholeskyDecomposition(M);
+			return (new Jama_Matrix(A.solve(((Jama_Matrix)B).M)));
+		}
+		System.err.println("solve not Jama_Matrix");
+		return null;
 	}
 }

@@ -19,6 +19,7 @@ public class RigidTransformation {
 	public ArrayList<Integer> fixedPoints; // the points the user wants to stay at a given position
 	public Matrix p;
 	public Matrix pPrime;
+	public Matrix b;
 
 	/*
 	 * 1) Precompute the weight coefficients w_ij
@@ -50,7 +51,7 @@ public class RigidTransformation {
 		}
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			globalNeighbors.put(e.getVertex(), Computations.getNeighbors(e));
-			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsArray(e, globalNeighbors.get(e.getVertex()));
+			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex()). If it doesn't work, just initialize a global array
 			for (Halfedge<Point_3> f : tmp.keySet()){
 				int j = f.getVertex().index;
@@ -62,7 +63,7 @@ public class RigidTransformation {
 	}
 	
 	public void arapIteration() {
-		// Step 1 & 2
+		// Step 3
 		for (Integer index : mobilePoints){
 			Vertex<Point_3> v = polyhedron3D.vertices.get(index);
 			Point_3 vPoint = v.getPoint();
@@ -70,31 +71,57 @@ public class RigidTransformation {
 			pPrime.set(v.index, 1, (double) vPoint.getY());
 			pPrime.set(v.index, 2, (double) vPoint.getZ());
 			Halfedge<Point_3> e = v.getHalfedge();
-			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsArray(e, globalNeighbors.get(e.getVertex()));
-			int i = v.index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex())
-			L.set(i, i, 0);
-			for (Halfedge<Point_3> f : tmp.keySet()){
-				int j = f.getVertex().index;
-				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
-				L.set(i, j, -tmp.get(f));
-				L.set(i, i, L.get(i, i)+tmp.get(f));
-			}
+			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
+
+			// the few next lines should be uncommented if we need to update the weights too
+//			int i = v.index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex())
+//			L.set(i, i, 0);
+//			for (Halfedge<Point_3> f : tmp.keySet()){
+//				int j = f.getVertex().index;
+//				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
+//				L.set(i, j, -tmp.get(f));
+//				L.set(i, i, L.get(i, i)+tmp.get(f));
+//			}
 		}
 		
+		// Step 4
+		for (Vertex<Point_3> v : polyhedron3D.vertices) {
+			int i = v.index;
+
+//			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
+//				VertRotMap.put(v, Rotation_3.rotationAxisX(0.));
+//			} else {
+				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
+//			}
+		}
+		
+		// Step 5
+		b = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
+		for (Vertex<Point_3> v : polyhedron3D.vertices) {
+			int i = v.index;
+			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
+			b.set(i, 0, (double) bi.getX());
+			b.set(i, 1, (double) bi.getY());
+			b.set(i, 2, (double) bi.getZ());
+		}
+		Matrix pSecond = L.solve(b);
+		
+		for (Integer index : fixedPoints){
+			pSecond.set(index, 0, pPrime.get(index, 0));
+			pSecond.set(index, 1, pPrime.get(index, 1));
+			pSecond.set(index, 2, pPrime.get(index, 2));
+		}
+
+		for (Integer index1 : mobilePoints){
+			pSecond.set(index1, 0, pPrime.get(index1, 0));
+			pSecond.set(index1, 1, pPrime.get(index1, 1));
+			pSecond.set(index1, 2, pPrime.get(index1, 2));
+		}
+
+		pPrime = pSecond;
 		
 	}
 	
-	// TODO
-	public Point_3 getBi(Vertex i){
-		Point_3 b = new Point_3(0., 0., 0.);
-		Rotation_3 R_i = VertRotMap.get(i);
-		for (Halfedge<Point_3> h : Computations.getNeighbors(i.getHalfedge())){
-			Rotation_3 R_j = VertRotMap.get(h.vertex);
-			Matrix R_ij = R_i.getMatrix().plus(R_j.getMatrix());
-//			R_ij.times(weightij.get(i).);
-		}
-		return b;
-	}
 	
 	
 }
