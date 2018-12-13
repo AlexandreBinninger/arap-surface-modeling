@@ -33,12 +33,18 @@ public class RigidTransformation {
 	 * 
 	 */
 	
-	public RigidTransformation() {//some constraints in parameters
+	public RigidTransformation(Polyhedron_3<Point_3> polyhedron) {//some constraints in parameters
 		// Step 1 & 2
+		polyhedron3D = polyhedron;
+		VertRotMap = new HashMap<Vertex<Point_3>, Rotation_3>();
 		globalNeighbors = new HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>>();
+		weightij = new HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>>();
 		L = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), polyhedron3D.vertices.size()));
+		mobilePoints = new ArrayList<Integer>();
+		fixedPoints = new ArrayList<Integer>();
 		p = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
 		pPrime = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
+		b = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
 		
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
@@ -106,6 +112,8 @@ public class RigidTransformation {
 		}
 		
 		// Step 4
+		System.out.println("step 4");
+		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 			int i = v.index;
 
@@ -114,10 +122,12 @@ public class RigidTransformation {
 //			} else {
 				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
 //			}
+				System.out.println(count);
+				count++;
 		}
 		
 		// Step 5
-		b = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
+		System.out.println("step 5");
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 			int i = v.index;
 			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
@@ -140,10 +150,6 @@ public class RigidTransformation {
 		}
 
 		pPrime = pSecond;
-		
-	}
-	
-	public static void main(String[] args) {
 		
 	}
 	
