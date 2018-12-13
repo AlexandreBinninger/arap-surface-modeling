@@ -173,9 +173,7 @@ public class Computations {
 	
 //	Rotation_3 getHalfedgeRotation(Matrix S, Halfedge<Point_3> h) {
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
-		System.out.println("coucou");
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
-		System.out.println(i);
 		Pair<Matrix, Matrix> UV = S.getSVD();
 		Rotation_3 R = new Rotation_3(UV.getSecond().times(UV.getFirst().getTranspose()));
 		return R;

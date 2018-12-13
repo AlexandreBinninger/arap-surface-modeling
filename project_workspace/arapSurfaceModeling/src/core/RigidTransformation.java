@@ -80,11 +80,18 @@ public class RigidTransformation {
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex()). If it doesn't work, just initialize a global array
-			for (Halfedge<Point_3> f : tmp.keySet()){
-				int j = f.getVertex().index;
-				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
-				L.set(i, j, -tmp.get(f));
-				L.set(i, i, L.get(i, i)+tmp.get(f));
+			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
+				for (int k = 0; k<L.getColumnDimension(); k++) {
+					L.set(i, k, 0);
+				}
+				L.set(i, i, 1);
+			} else {
+				for (Halfedge<Point_3> f : tmp.keySet()){
+					int j = f.getVertex().index;
+					weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
+					L.set(i, j, -tmp.get(f));
+					L.set(i, i, L.get(i, i)+tmp.get(f));
+				}
 			}
 		}	
 	}
@@ -97,7 +104,13 @@ public class RigidTransformation {
 			pPrime.set(v.index, 0, (Double) vPoint.getX());
 			pPrime.set(v.index, 1, (Double) vPoint.getY());
 			pPrime.set(v.index, 2, (Double) vPoint.getZ());
-
+			int i = v.index;
+			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
+				for (int k = 0; k<L.getColumnDimension(); k++) {
+					L.set(i, k, 0);
+				}
+				L.set(i, i, 1);
+			}
 			// the few next lines should be uncommented if we need to update the weights too
 //			Halfedge<Point_3> e = v.getHalfedge();
 //			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
@@ -112,8 +125,6 @@ public class RigidTransformation {
 		}
 		
 		// Step 4
-		System.out.println("step 4");
-		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 			int i = v.index;
 
@@ -122,12 +133,9 @@ public class RigidTransformation {
 //			} else {
 				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
 //			}
-				System.out.println(count);
-				count++;
 		}
 		
 		// Step 5
-		System.out.println("step 5");
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 			int i = v.index;
 			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
