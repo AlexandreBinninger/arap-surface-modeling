@@ -83,6 +83,7 @@ public class RigidTransformation {
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {
 					L.set(i, k, 0);
+					L.set(k, i, 0);
 				}
 				L.set(i, i, 1);
 			} else {
@@ -108,6 +109,7 @@ public class RigidTransformation {
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {
 					L.set(i, k, 0);
+					L.set(k, i, 0);
 				}
 				L.set(i, i, 1);
 			}
