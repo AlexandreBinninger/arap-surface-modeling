@@ -24,7 +24,7 @@ public class Computations {
 		Point_3 c = vc.getPoint();
 		Vector_3 e1 = new Vector_3(b, a);
 		Vector_3 e2 = new Vector_3(b, c);
-		return (Double) e1.innerProduct(e2);
+		return Math.acos((double)e1.innerProduct(e2) / Math.sqrt(((double)e1.squaredLength() * (double)e2.squaredLength())));
 	}
 
 	static double getWeight(Halfedge<Point_3> h) {
@@ -33,7 +33,7 @@ public class Computations {
 		double alpha = getOppositeAngle(h);
 		h = h.getOpposite();
 		double beta = getOppositeAngle(h);
-		double weight = 0.5 * (1 / Math.atan(alpha)) * (1 / Math.atan(beta));
+		double weight = 0.5 * ((1 / Math.atan(alpha)) + (1 / Math.atan(beta)));
 		if (Double.isInfinite(weight)) {
 			return 0;
 		} else {

@@ -103,13 +103,11 @@ public class RigidTransformation {
 					L.set(i, i, L.get(i, i)+tmp.get(f));
 				}
 			}
-			System.out.println(weightij.get(e.getVertex()));
 		}	
 	}
 	
 	public void arapIteration() {
 		// Step 3
-		//TODO on devrait pas faire pareil pour fixedPoints ?
 		for (Integer index : mobilePoints){
 			Vertex<Point_3> v = polyhedron3D.vertices.get(index);
 			Point_3 vPoint = v.getPoint();

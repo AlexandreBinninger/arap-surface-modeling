@@ -101,7 +101,7 @@ public class MeshViewer extends PApplet{
 			//TEST
 			
 			Point_3 pi = v.getPoint();
-			pi.setX((Double)pi.getX() + 1);
+			pi.setX((Double)pi.getX() + 0.01);
 			for(int i=0; i < loops; i++) {
 				arap.arapIteration();
 			}
@@ -121,7 +121,7 @@ public class MeshViewer extends PApplet{
 			    case('P'):this.incrzMoins(0.1); break;
 //			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(1); break;
+			    case('t'):this.transform(4); break;
 			  }
 		}
 		
