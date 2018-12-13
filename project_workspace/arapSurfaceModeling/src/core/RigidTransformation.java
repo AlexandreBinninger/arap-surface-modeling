@@ -94,7 +94,6 @@ public class RigidTransformation {
 					weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
 				}
 			} else {
-				L.set(i, i, 0);
 				for (Halfedge<Point_3> f : tmp.keySet()){
 					int j = f.getVertex().index;
 					weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
@@ -160,13 +159,19 @@ public class RigidTransformation {
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 //			System.out.println("step 5");
 			int i = v.index;
-			Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
-			b.set(i, 0, (Double) bi.getX());
-			b.set(i, 1, (Double) bi.getY());
-			b.set(i, 2, (Double) bi.getZ());
+			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
+				b.set(i, 0, (Double) pPrime.get(i, 0));
+				b.set(i, 1, (Double) pPrime.get(i, 1));
+				b.set(i, 2, (Double) pPrime.get(i, 2));
+			} else {
+				Point_3 bi = Computations.getBi(v, VertRotMap, globalNeighbors.get(v), weightij.get(v));
+				b.set(i, 0, (Double) bi.getX());
+				b.set(i, 1, (Double) bi.getY());
+				b.set(i, 2, (Double) bi.getZ());
+			}
 		}
-//		System.out.println(Arrays.deepToString(((Jama_Matrix)L).getM().getArray()));
-		System.out.println(isSymmetric(L));
+		System.out.println(Arrays.deepToString(((Jama_Matrix)L).getM().getArray()));
+//		System.out.println(isSymmetric(L));
 		Matrix pSecond = L.solve(b);
 		
 		for (Integer index : fixedPoints){

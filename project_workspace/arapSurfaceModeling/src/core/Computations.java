@@ -215,7 +215,7 @@ public class Computations {
 		Point_3 b = new Point_3(0., 0., 0.);
 		Rotation_3 R_i = VertRotMap.get(v);
 		for (Halfedge<Point_3> h : neighbors){
-			Rotation_3 R_j = VertRotMap.get(h.vertex);
+			Rotation_3 R_j = VertRotMap.get(h.getVertex());
 			Matrix R_ij = R_i.getMatrix().plus(R_j.getMatrix());
 			Rotation_3 transformation = new Rotation_3(R_ij.times(0.5 * weights.get(h.getVertex())));
 			Point_3 tmp = Point_3.linearCombination(new Point_3[] {v.getPoint(),  h.getVertex().getPoint()}, new Number[] {1, -1});
