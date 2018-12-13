@@ -40,11 +40,12 @@ public class MeshViewer extends PApplet{
 		  ArcBall arcball = new ArcBall(this);
 		  this.mesh=new SurfaceMesh(this, filename);		  
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
+		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-		  arap.fixedPoints.add(50);
-		  arap.fixedPoints.add(51);
-		  arap.fixedPoints.add(52);
-		  arap.fixedPoints.add(53);
+//		  arap.fixedPoints.add(50);
+//		  arap.fixedPoints.add(51);
+//		  arap.fixedPoints.add(52);
+//		  arap.fixedPoints.add(53);
 	}
 		 
 		public void draw() {
@@ -93,7 +94,7 @@ public class MeshViewer extends PApplet{
 		public void transform(int loops) {
 			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
 			Point_3 pi = v.getPoint();
-			pi.setX((Double)pi.getX() + 10);
+			pi.setX((Double)pi.getX() + 1);
 			for(int i=0; i < loops; i++) {
 				arap.arapIteration();
 			}
