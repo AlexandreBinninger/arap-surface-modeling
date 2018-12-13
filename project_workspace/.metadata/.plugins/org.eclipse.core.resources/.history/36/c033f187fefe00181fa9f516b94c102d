@@ -42,7 +42,7 @@ public class MeshViewer extends PApplet{
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
 		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-		  arap.fixedPoints.add(4);
+//		  arap.fixedPoints.add(50);
 //		  arap.fixedPoints.add(51);
 //		  arap.fixedPoints.add(52);
 //		  arap.fixedPoints.add(53);
@@ -121,7 +121,7 @@ public class MeshViewer extends PApplet{
 			    case('P'):this.incrzMoins(0.1); break;
 //			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(1); break;
+			    case('t'):this.transform(10); break;
 			  }
 		}
 		

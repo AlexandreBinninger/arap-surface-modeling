@@ -184,7 +184,7 @@ public class Computations {
 	
 //	Rotation_3 getHalfedgeRotation(Matrix S, Halfedge<Point_3> h) {
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
-		//System.out.println("coucou");
+		System.out.println("coucou");
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
 //		System.out.println(Arrays.deepToString(((Jama_Matrix)S).getM().getArray()));
 //		System.out.println("before svd");

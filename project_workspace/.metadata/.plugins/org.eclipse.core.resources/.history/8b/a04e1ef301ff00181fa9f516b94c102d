@@ -91,7 +91,7 @@ public class Jama_Matrix implements Matrix {
 		return null;
 	}
 	
-	public double determinant(){
+	public int determinant(){
 		if (this.getColumnDimension()!=this.getRowDimension()){
 			return -1;
 		}else{

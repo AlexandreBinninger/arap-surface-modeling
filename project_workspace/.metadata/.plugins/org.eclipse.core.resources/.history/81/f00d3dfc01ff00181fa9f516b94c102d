@@ -11,8 +11,6 @@ public interface Matrix {
 	
 	public int getColumnDimension();
 	
-	public double determinant();
-	
 	public double get(int i, int j);
 	
 	public void set(int i, int j, double s);

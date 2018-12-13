@@ -42,7 +42,7 @@ public class MeshViewer extends PApplet{
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
 		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-		  arap.fixedPoints.add(4);
+//		  arap.fixedPoints.add(50);
 //		  arap.fixedPoints.add(51);
 //		  arap.fixedPoints.add(52);
 //		  arap.fixedPoints.add(53);
@@ -93,13 +93,6 @@ public class MeshViewer extends PApplet{
 		}
 		public void transform(int loops) {
 			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
-			
-			//TEST
-			for (Vertex<Point_3> vv : arap.polyhedron3D.vertices){
-				//System.out.println(vv.index);
-			}
-			//TEST
-			
 			Point_3 pi = v.getPoint();
 			pi.setX((Double)pi.getX() + 1);
 			for(int i=0; i < loops; i++) {
