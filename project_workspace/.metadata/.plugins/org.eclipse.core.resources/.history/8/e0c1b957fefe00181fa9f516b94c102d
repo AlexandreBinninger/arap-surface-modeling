@@ -104,14 +104,12 @@ public class RigidTransformation {
 	
 	public void arapIteration() {
 		// Step 3
-		//TODO on devrait pas faire pareil pour fixedPoints ?
 		for (Integer index : mobilePoints){
 			Vertex<Point_3> v = polyhedron3D.vertices.get(index);
 			Point_3 vPoint = v.getPoint();
 			pPrime.set(v.index, 0, (Double) vPoint.getX());
 			pPrime.set(v.index, 1, (Double) vPoint.getY());
 			pPrime.set(v.index, 2, (Double) vPoint.getZ());
-			//TODO : bizarre non ? i==index non ?
 			int i = v.index;
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {

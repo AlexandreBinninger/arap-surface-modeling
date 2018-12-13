@@ -90,12 +90,4 @@ public class Jama_Matrix implements Matrix {
 		System.err.println("solve not Jama_Matrix");
 		return null;
 	}
-	
-	public double determinant(){
-		if (this.getColumnDimension()!=this.getRowDimension()){
-			return -1;
-		}else{
-			return this.M.det();
-		}
-	}
 }

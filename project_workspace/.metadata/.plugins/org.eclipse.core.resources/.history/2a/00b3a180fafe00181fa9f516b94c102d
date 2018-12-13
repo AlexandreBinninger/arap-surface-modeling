@@ -16,12 +16,12 @@ public class RigidTransformation {
 	public HashMap<Vertex<Point_3>, Rotation_3> VertRotMap; //Map the vertex i to the rotation R_i
 	public HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>> globalNeighbors; // Hashmap<i, neighborsOfI>
 	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
-	public Matrix L; //Laplace-Beltrami operator
+	public Matrix L;
 	public ArrayList<Integer> mobilePoints; // the points the user is allowed to move
 	public ArrayList<Integer> fixedPoints; // the points the user wants to stay at a given position
-	public Matrix p; //Matrix of all points
-	public Matrix pPrime; //Matrix of new points
-	public Matrix b; //eq (9) of the paper
+	public Matrix p;
+	public Matrix pPrime;
+	public Matrix b;
 
 	/*
 	 * 1) Precompute the weight coefficients w_ij
@@ -61,8 +61,7 @@ public class RigidTransformation {
 			globalNeighbors.put(e.getVertex(), Computations.getNeighbors(e));
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 			int i = e.getVertex().index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex()). If it doesn't work, just initialize a global array
-			L.set(i, i, 0);
-			for (Halfedge<Point_3> f : tmp.keySet()){ // for all incident halfedge f of e
+			for (Halfedge<Point_3> f : tmp.keySet()){
 				int j = f.getVertex().index;
 				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
 				L.set(i, j, -tmp.get(f));
@@ -90,7 +89,6 @@ public class RigidTransformation {
 				}
 				L.set(i, i, 1);
 			} else {
-				L.set(i, i, 0);
 				for (Halfedge<Point_3> f : tmp.keySet()){
 					int j = f.getVertex().index;
 					weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
@@ -104,14 +102,12 @@ public class RigidTransformation {
 	
 	public void arapIteration() {
 		// Step 3
-		//TODO on devrait pas faire pareil pour fixedPoints ?
 		for (Integer index : mobilePoints){
 			Vertex<Point_3> v = polyhedron3D.vertices.get(index);
 			Point_3 vPoint = v.getPoint();
 			pPrime.set(v.index, 0, (Double) vPoint.getX());
 			pPrime.set(v.index, 1, (Double) vPoint.getY());
 			pPrime.set(v.index, 2, (Double) vPoint.getZ());
-			//TODO : bizarre non ? i==index non ?
 			int i = v.index;
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				for (int k = 0; k<L.getColumnDimension(); k++) {

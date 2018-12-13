@@ -96,7 +96,7 @@ public class MeshViewer extends PApplet{
 			
 			//TEST
 			for (Vertex<Point_3> vv : arap.polyhedron3D.vertices){
-				//System.out.println(vv.index);
+				System.out.println(vv.index);
 			}
 			//TEST
 			

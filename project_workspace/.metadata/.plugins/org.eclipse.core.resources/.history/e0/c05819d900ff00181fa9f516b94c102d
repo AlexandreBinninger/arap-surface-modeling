@@ -119,6 +119,7 @@ public class Computations {
 		Matrix D = new Jama_Matrix(new double[n][n]);
 		for (int k = 0; k < n; k++) {
 			Halfedge<Point_3> e = neighbors.get(k);
+			System.out.println(k==e.index);
 			Vertex<Point_3> eVertex = e.getVertex();
 			D.set(k, k, (double) weights.get(eVertex));
 		}
