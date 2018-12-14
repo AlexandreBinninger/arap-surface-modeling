@@ -77,7 +77,7 @@ public class RigidTransformation {
 	public void updateEverything() {
 		p = pPrime.clone();
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
-			//Vector_3 Translation = computeTranslation(v);
+			//Vector_3 Translation = computeTranslation(v); //It was a try but actually useless
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
 			int i = v.index;
 			//Point_3 pi = new Point_3(p.get(i, 0)+Translation.x, p.get(i, 1)+Translation.y, p.get(i, 2)+Translation.z);

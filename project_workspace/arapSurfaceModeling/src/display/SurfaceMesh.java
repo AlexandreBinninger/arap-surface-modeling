@@ -70,7 +70,7 @@ public class SurfaceMesh {
 		float z1 = (float) p.getZ().doubleValue() * s + (float) incrz;
 
 		view.translate(x1, y1, z1);
-		view.sphere(s / 25f);
+		view.sphere(s / 75f);
 		view.translate(-x1, -y1, -z1);
 	}
 
@@ -152,6 +152,13 @@ public class SurfaceMesh {
 		view.noStroke();
 		view.fill(0f, 0f, 250f);
 		for (int indexVertex : this.view.arap.mobilePoints) {
+			Vertex<Point_3> v = this.view.arap.polyhedron3D.vertices
+					.get(indexVertex);
+			this.drawVertex(v.getPoint());
+		}
+
+		view.fill(250f, 0f, 0f);
+		for (int indexVertex : this.view.arap.fixedPoints){
 			Vertex<Point_3> v = this.view.arap.polyhedron3D.vertices
 					.get(indexVertex);
 			this.drawVertex(v.getPoint());
