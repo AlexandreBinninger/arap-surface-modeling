@@ -59,8 +59,10 @@ public class Rotation_3 {
 		double z=p.getCartesian(2).doubleValue();
 		double[][] array = {{x}, {y}, {z}}; 
 		Matrix v= new Jama_Matrix(array); // the vector
-		
 		Matrix result=this.m.times(v);
+//		v.toPrint();
+//		result.toPrint();
+		this.m.toPrint();
 		double[] coord={result.get(0, 0), result.get(1, 0), result.get(2, 0)};
 		return new Point_3(coord[0], coord[1], coord[2]);
 	}

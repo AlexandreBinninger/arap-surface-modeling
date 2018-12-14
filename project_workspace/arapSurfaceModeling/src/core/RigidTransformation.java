@@ -17,6 +17,7 @@ public class RigidTransformation {
 	public HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>> globalNeighbors; // Hashmap<i, neighborsOfI>
 	public HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>> weightij; // Hashmap<i, Hashmap<j, wij>>
 	public Matrix L; //Laplace-Beltrami operator
+//	public Vector_3 globalTranslation;
 	public ArrayList<Integer> mobilePoints; // the points the user is allowed to move
 	public ArrayList<Integer> fixedPoints; // the points the user wants to stay at a given position
 	public Matrix p; //Matrix of all points
@@ -34,10 +35,11 @@ public class RigidTransformation {
 	 * 
 	 */
 	
-	public RigidTransformation(Polyhedron_3<Point_3> polyhedron) {//some constraints in parameters
+	public RigidTransformation(Polyhedron_3<Point_3> polyhedron) {
 		// Step 1 & 2
 		polyhedron3D = polyhedron;
 		VertRotMap = new HashMap<Vertex<Point_3>, Rotation_3>();
+//		globalTranslation = new Vector_3(0, 0, 0);
 		globalNeighbors = new HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>>();
 		weightij = new HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>>();
 		L = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), polyhedron3D.vertices.size()));
@@ -75,8 +77,11 @@ public class RigidTransformation {
 	public void updateEverything() {
 		p = pPrime.clone();
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
+			//Vector_3 Translation = computeTranslation(v);
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());
 			int i = v.index;
+			//Point_3 pi = new Point_3(p.get(i, 0)+Translation.x, p.get(i, 1)+Translation.y, p.get(i, 2)+Translation.z);
+
 			Point_3 pi = new Point_3(p.get(i, 0), p.get(i, 1), p.get(i, 2));
 			v.setPoint(pi);
 		}
@@ -103,6 +108,34 @@ public class RigidTransformation {
 				}
 			}
 		}	
+	}
+	
+	public Vector_3 computeTranslation(Vertex<Point_3> v){
+		ArrayList<Halfedge<Point_3>> neighbours = globalNeighbors.get(v);
+		Point_3 pMoy = new Point_3(0, 0, 0);
+		Point_3 pPrimeMoy = new Point_3(0, 0, 0);
+		double totWeight = 0;
+		for (Halfedge<Point_3> h : neighbours){
+			double wij = weightij.get(v).get(h.getVertex());
+			totWeight+=wij;
+			int i= h.getVertex().index;
+			pMoy.x+=this.p.get(i, 0)*wij;
+			pMoy.y+=this.p.get(i, 1)*wij;
+			pMoy.z+=this.p.get(i, 2)*wij;
+
+			pPrimeMoy.x+=this.pPrime.get(i, 0)*wij;
+			pPrimeMoy.y+=this.pPrime.get(i, 1)*wij;
+			pPrimeMoy.z+=this.pPrime.get(i, 2)*wij;
+		}
+
+		pMoy.x/=totWeight;
+		pMoy.y/=totWeight;
+		pMoy.z/=totWeight;
+
+		pPrimeMoy.x/=totWeight;
+		pPrimeMoy.y/=totWeight;
+		pPrimeMoy.z/=totWeight;
+		return new Vector_3(VertRotMap.get(v).transform(pMoy), pPrimeMoy);
 	}
 	
 	public void arapIteration() {
@@ -170,21 +203,21 @@ public class RigidTransformation {
 				b.set(i, 2, (Double) bi.getZ());
 			}
 		}
-		System.out.println(Arrays.deepToString(((Jama_Matrix)L).getM().getArray()));
-//		System.out.println(isSymmetric(L));
+//		System.out.println("L = ");
+//		L.toPrint();
 		Matrix pSecond = L.solve(b);
 		
-		for (Integer index : fixedPoints){
-			pSecond.set(index, 0, pPrime.get(index, 0));
-			pSecond.set(index, 1, pPrime.get(index, 1));
-			pSecond.set(index, 2, pPrime.get(index, 2));
-		}
-
-		for (Integer index1 : mobilePoints){
-			pSecond.set(index1, 0, pPrime.get(index1, 0));
-			pSecond.set(index1, 1, pPrime.get(index1, 1));
-			pSecond.set(index1, 2, pPrime.get(index1, 2));
-		}
+//		for (Integer index : fixedPoints){
+//			pSecond.set(index, 0, pPrime.get(index, 0));
+//			pSecond.set(index, 1, pPrime.get(index, 1));
+//			pSecond.set(index, 2, pPrime.get(index, 2));
+//		}
+//
+//		for (Integer index1 : mobilePoints){
+//			pSecond.set(index1, 0, pPrime.get(index1, 0));
+//			pSecond.set(index1, 1, pPrime.get(index1, 1));
+//			pSecond.set(index1, 2, pPrime.get(index1, 2));
+//		}
 
 		pPrime = pSecond;
 		

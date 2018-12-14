@@ -18,19 +18,19 @@ public class MeshViewer extends PApplet{
 	
 	SurfaceMesh mesh; // 3d surface mesh
 	int renderType=0; // choice of type of rendering
-	int renderModes=2; // number of rendering modes
+	int renderModes=3; // number of rendering modes
 	RigidTransformation arap;
 	
 //	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
-	String filename="OFF/cube.off";
+//	String filename="OFF/cube.off";
 //	String filename="OFF/torus_33.off";
 //	String filename="OFF/tore.off";
 //	String filename="OFF/tri_hedra.off";
 //	String filename="OFF/letter_a.off";
 //	String filename="OFF/star.off";
 //	String filename="OFF/tri_triceratops.off";
-//	String filename="OFF/cactus_small.off";
+	String filename="OFF/cactus_small.off";
 //	String filename="OFF/dino.off";
 //	String filename="OFF/square_21_spikes.off";
 //	String filename="OFF/cow.off";
@@ -42,7 +42,7 @@ public class MeshViewer extends PApplet{
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
 		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-		  arap.fixedPoints.add(4);
+//		  arap.fixedPoints.add(4);
 //		  arap.fixedPoints.add(51);
 //		  arap.fixedPoints.add(52);
 //		  arap.fixedPoints.add(53);
@@ -94,6 +94,8 @@ public class MeshViewer extends PApplet{
 		public void transform(int loops) {
 			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
 			
+			System.out.println(v.getPoint());
+			
 			//TEST
 //			for (Vertex<Point_3> vv : arap.polyhedron3D.vertices){
 				//System.out.println(vv.index);
@@ -101,7 +103,8 @@ public class MeshViewer extends PApplet{
 			//TEST
 			
 			Point_3 pi = v.getPoint();
-			pi.setX((Double)pi.getX() + 0.00001);
+			pi.setX((Double)pi.getX() + 0.01);
+			System.out.println(v.getPoint());
 			for(int i=0; i < loops; i++) {
 				arap.arapIteration();
 			}
@@ -121,7 +124,7 @@ public class MeshViewer extends PApplet{
 			    case('P'):this.incrzMoins(0.1); break;
 //			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(4); break;
+			    case('t'):this.transform(100); break;
 			  }
 		}
 		

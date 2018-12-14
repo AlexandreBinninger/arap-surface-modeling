@@ -1,4 +1,5 @@
 package matrixPkg;
+import Jcg.geometry.Vector_3;
 import Utils.Pair;
 
 public interface Matrix {
@@ -30,4 +31,8 @@ public interface Matrix {
 	public Matrix getTranspose();
 	
 	public Matrix solve(Matrix B);
+	
+	public void toPrint();
+	
+	public Matrix vectorToMatrix(Vector_3 vector);
 }

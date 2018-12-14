@@ -2,7 +2,7 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="Jama.Matrix"/>
 <fullyQualifiedTypeName name="matrixPkg.Matrix"/>
-<fullyQualifiedTypeName name="matrixPkg.Jama_Matrix"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="Utils.Pair"/>
+<fullyQualifiedTypeName name="matrixPkg.Jama_Matrix"/>
 </qualifiedTypeNameHistroy>

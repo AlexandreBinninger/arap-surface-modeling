@@ -30,49 +30,49 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="5"/>
-<part id="0"/>
-<part id="6"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
 <part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Matrix.java" partName="Matrix.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java" title="Matrix.java" tooltip="arapSurfaceModeling/src/matrixPkg/Matrix.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/matrixPkg/Matrix.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="141" selectionTopPixel="0"/>
-</editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pair.java" partName="Pair.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/Utils/Pair.java" title="Pair.java" tooltip="arapSurfaceModeling/src/Utils/Pair.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/Utils/Pair.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="357" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MeshViewer.java" partName="MeshViewer.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/display/MeshViewer.java" title="MeshViewer.java" tooltip="arapSurfaceModeling/src/display/MeshViewer.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MeshViewer.java" partName="MeshViewer.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/display/MeshViewer.java" title="MeshViewer.java" tooltip="arapSurfaceModeling/src/display/MeshViewer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/display/MeshViewer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="2" selectionOffset="2889" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1977" selectionTopPixel="600"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SurfaceMesh.java" partName="SurfaceMesh.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/display/SurfaceMesh.java" title="SurfaceMesh.java" tooltip="arapSurfaceModeling/src/display/SurfaceMesh.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/display/SurfaceMesh.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="42" selectionOffset="513" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2200"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Computations.java" partName="Computations.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/Computations.java" title="Computations.java" tooltip="arapSurfaceModeling/src/Computations.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/Computations.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1969" selectionTopPixel="689"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Jama_Matrix.java" partName="Jama_Matrix.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java" title="Jama_Matrix.java" tooltip="arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Jama_Matrix.java" partName="Jama_Matrix.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java" title="Jama_Matrix.java" tooltip="arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="252" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RigidTransformation.java" partName="RigidTransformation.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/RigidTransformation.java" title="RigidTransformation.java" tooltip="arapSurfaceModeling/src/RigidTransformation.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/RigidTransformation.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1262" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2072" selectionTopPixel="835"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Rotation_3.java" partName="Rotation_3.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/Utils/Rotation_3.java" title="Rotation_3.java" tooltip="arapSurfaceModeling/src/Utils/Rotation_3.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/Utils/Rotation_3.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="925" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="834" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RigidTransformation.java" partName="RigidTransformation.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/core/RigidTransformation.java" title="RigidTransformation.java" tooltip="arapSurfaceModeling/src/core/RigidTransformation.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/core/RigidTransformation.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5536" selectionTopPixel="1340"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Computations.java" partName="Computations.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/core/Computations.java" title="Computations.java" tooltip="arapSurfaceModeling/src/core/Computations.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/core/Computations.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="755" selectionTopPixel="150"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Matrix.java" partName="Matrix.java" path="/media/cauchy/DATA/Documents/Polytechnique/3A/S1/INF574/Project/arap-surface-modeling/project_workspace/arapSurfaceModeling/src/matrixPkg/Matrix.java" title="Matrix.java" tooltip="arapSurfaceModeling/src/matrixPkg/Matrix.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/arapSurfaceModeling/src/matrixPkg/Matrix.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -108,10 +108,6 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings (9 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="677" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -321,162 +317,165 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/Computations.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/matrixPkg/Matrix.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/core/Computations.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/display/MeshViewer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/core/RigidTransformation.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/matrixPkg/Jama_Matrix.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/matrixPkg/Matrix.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/display/SurfaceMesh.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/RigidTransformation.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/Utils/Rotation_3.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/display/SurfaceMesh.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/arapSurfaceModeling/src/Test.java"/>
 </editors>
-<item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1233" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="4369" y="0"/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="886" y="0"/>
-</item>
-<item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1233" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="886" y="0"/>
-</item>
-<item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1243" y="15"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="960" y="0"/>
-</item>
-<item historyLabel="Rotation_3.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="960" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1309" y="0"/>
-</item>
-<item historyLabel="Jama_Matrix.java" index="2">
+<item historyLabel="MeshViewer.java" index="1">
 <position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1309" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="5835" y="0"/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1243" y="15"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="154" y="0"/>
+<position/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1243" y="15"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1136" y="0"/>
+<position/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1243" y="15"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1133" y="0"/>
+<position/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="898" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1080" y="0"/>
-</item>
-<item historyLabel="Matrix.java" index="1">
-<position info="not_deleted" x="188" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1080" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1293" y="0"/>
+<position/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="783" y="0"/>
+<position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1293" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="5835" y="0"/>
 </item>
-<item historyLabel="Matrix.java" index="1">
-<position info="not_deleted" x="188" y="0"/>
+<item historyLabel="Computations.java" index="0">
+<position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1293" y="0"/>
+<item historyLabel="Matrix.java" index="4">
+<position info="not_deleted" x="141" y="0"/>
 </item>
-<item historyLabel="Rotation_3.java" index="4">
+<item historyLabel="Jama_Matrix.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Rotation_3.java" index="4">
-<position info="not_deleted" x="1767" y="0"/>
+<item historyLabel="Jama_Matrix.java" index="3">
+<position info="not_deleted" x="2085" y="0"/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="875" y="0"/>
+<item historyLabel="Jama_Matrix.java" index="3">
+<position info="not_deleted" x="2072" y="0"/>
+</item>
+<item historyLabel="Matrix.java" index="4">
+<position info="not_deleted" x="141" y="0"/>
+</item>
+<item historyLabel="Matrix.java" index="4">
+<position info="not_deleted" x="232" y="0"/>
+</item>
+<item historyLabel="Jama_Matrix.java" index="3">
+<position info="not_deleted" x="2072" y="0"/>
+</item>
+<item historyLabel="RigidTransformation.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Jama_Matrix.java" index="3">
+<position info="not_deleted" x="2072" y="0"/>
+</item>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="5835" y="0"/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="783" y="0"/>
+<position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="875" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="5835" y="0"/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1291" y="0"/>
+<item historyLabel="Computations.java" index="0">
+<position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1262" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="6107" y="0"/>
 </item>
-<item historyLabel="Matrix.java" index="1">
-<position info="not_deleted" x="188" y="0"/>
+<item historyLabel="Computations.java" index="0">
+<position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1262" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="6107" y="0"/>
 </item>
-<item historyLabel="Jama_Matrix.java" index="2">
+<item historyLabel="Computations.java" index="0">
+<position/>
+</item>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="6107" y="0"/>
+</item>
+<item historyLabel="Computations.java" index="0">
+<position/>
+</item>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="998" y="0"/>
+</item>
+<item historyLabel="Computations.java" index="0">
+<position/>
+</item>
+<item historyLabel="Matrix.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MeshViewer.java" index="1">
 <position/>
 </item>
 <item historyLabel="SurfaceMesh.java" index="5">
-<position info="not_deleted" x="513" y="42"/>
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1262" y="0"/>
+<item historyLabel="Jama_Matrix.java" index="3">
+<position info="not_deleted" x="2072" y="0"/>
 </item>
-<item historyLabel="Rotation_3.java" index="4">
-<position info="not_deleted" x="925" y="0"/>
+<item historyLabel="Rotation_3.java" index="7">
+<position info="not_deleted" x="834" y="0"/>
 </item>
-<item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="828" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1262" y="0"/>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="4692" y="0"/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="828" y="0"/>
+<position/>
 </item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1262" y="0"/>
+<item historyLabel="Test.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Rotation_3.java" index="4">
-<position info="not_deleted" x="925" y="0"/>
-</item>
-<item historyLabel="RigidTransformation.java" index="3">
-<position info="not_deleted" x="1262" y="0"/>
+<item historyLabel="Test.java" index="8">
+<position info="not_deleted" x="119" y="0"/>
 </item>
 <item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="828" y="0"/>
+<position info="not_deleted" x="755" y="0"/>
 </item>
-<item historyLabel="Rotation_3.java" index="4">
-<position info="not_deleted" x="925" y="0"/>
+<item historyLabel="MeshViewer.java" index="1">
+<position info="not_deleted" x="846" y="0"/>
 </item>
-<item historyLabel="Computations.java" index="0">
-<position info="not_deleted" x="1969" y="0"/>
+<item historyLabel="SurfaceMesh.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Matrix.java" index="1">
-<position info="not_deleted" x="141" y="0"/>
+<item historyLabel="Jama_Matrix.java" index="3">
+<position info="not_deleted" x="2072" y="0"/>
 </item>
-<item active="true" historyLabel="Jama_Matrix.java" index="2">
-<position info="not_deleted" x="679" y="0"/>
+<item historyLabel="Rotation_3.java" index="7">
+<position info="not_deleted" x="834" y="0"/>
+</item>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="4807" y="0"/>
+</item>
+<item historyLabel="MeshViewer.java" index="1">
+<position info="not_deleted" x="577" y="0"/>
+</item>
+<item historyLabel="RigidTransformation.java" index="2">
+<position info="not_deleted" x="5536" y="0"/>
+</item>
+<item historyLabel="SurfaceMesh.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="MeshViewer.java" index="1">
+<position info="not_deleted" x="1643" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -495,6 +494,21 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Test.java" tooltip="arapSurfaceModeling/src/Test.java">
+<persistable path="/arapSurfaceModeling/src/Test.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Matrix.java" tooltip="arapSurfaceModeling/src/matrixPkg/Matrix.java">
+<persistable path="/arapSurfaceModeling/src/matrixPkg/Matrix.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditorNoSource" name="PApplet.class" tooltip="processing.core.PApplet">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=arapSurfaceModeling/libs\/core.jar&lt;processing.core(PApplet.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Computations.java" tooltip="arapSurfaceModeling/src/core/Computations.java">
+<persistable path="/arapSurfaceModeling/src/core/Computations.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RigidTransformation.java" tooltip="arapSurfaceModeling/src/core/RigidTransformation.java">
+<persistable path="/arapSurfaceModeling/src/core/RigidTransformation.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Rotation_3.java" tooltip="arapSurfaceModeling/src/Utils/Rotation_3.java">
 <persistable path="/arapSurfaceModeling/src/Utils/Rotation_3.java"/>
 </file>
@@ -521,12 +535,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Pair.java" tooltip="arapSurfaceModeling/src/Utils/Pair.java">
 <persistable path="/arapSurfaceModeling/src/Utils/Pair.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Matrix.java" tooltip="arapSurfaceModeling/src/matrixPkg/Matrix.java">
-<persistable path="/arapSurfaceModeling/src/matrixPkg/Matrix.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Test.java" tooltip="arapSurfaceModeling/src/Test.java">
-<persistable path="/arapSurfaceModeling/src/Test.java"/>
 </file>
 </mruList>
 </workbench>

@@ -24,7 +24,7 @@ public class Computations {
 		Point_3 c = vc.getPoint();
 		Vector_3 e1 = new Vector_3(b, a);
 		Vector_3 e2 = new Vector_3(b, c);
-		return Math.acos((double)e1.innerProduct(e2) / Math.sqrt(((double)e1.squaredLength() * (double)e2.squaredLength())));
+		return Math.acos((Double)e1.innerProduct(e2) / Math.sqrt(((Double)e1.squaredLength() * (Double)e2.squaredLength())));
 	}
 
 	static double getWeight(Halfedge<Point_3> h) {
@@ -33,7 +33,7 @@ public class Computations {
 		double alpha = getOppositeAngle(h);
 		h = h.getOpposite();
 		double beta = getOppositeAngle(h);
-		double weight = 0.5 * ((1 / Math.atan(alpha)) + (1 / Math.atan(beta)));
+		double weight = 0.5 * ((1 / Math.tan(alpha)) + (1 / Math.tan(beta)));
 		if (Double.isInfinite(weight) || Double.isNaN(weight)) {
 			return 0;
 		} else {
@@ -217,14 +217,18 @@ public class Computations {
 		for (Halfedge<Point_3> h : neighbors){
 			Rotation_3 R_j = VertRotMap.get(h.getVertex());
 			Matrix R_ij = R_i.getMatrix().plus(R_j.getMatrix());
-			Rotation_3 transformation = new Rotation_3(R_ij.times(0.5 * weights.get(h.getVertex())));
-			Point_3 tmp = Point_3.linearCombination(new Point_3[] {v.getPoint(),  h.getVertex().getPoint()}, new Number[] {1, -1});
+//			Rotation_3 transformation = new Rotation_3(R_ij.times(0.5 * weights.get(h.getVertex())));
+			Matrix transformation = R_ij.times(0.5 * weights.get(h.getVertex()));
+//			Point_3 tmp = Point_3.linearCombination(new Point_3[] {v.getPoint(),  h.getVertex().getPoint()}, new Number[] {1, -1});
+			Vector_3 tmp = new Vector_3(h.getVertex().getPoint(), v.getPoint());
 //			Point_3 tmp = new Point_3(0., 0., 0.);
 //			tmp.setX((double) v.getPoint().getX() - (double) h.getVertex().getPoint().getX());
 //			tmp.setY((double) v.getPoint().getY() - (double) h.getVertex().getPoint().getY());
 //			tmp.setZ((double) v.getPoint().getZ() - (double) h.getVertex().getPoint().getZ());
-			tmp = transformation.transform(tmp);
-			b = Point_3.linearCombination(new Point_3[] {b, tmp}, new Number[] {1, 1});
+			Matrix TMP = R_ij.vectorToMatrix(tmp);
+			TMP = transformation.times(TMP);
+			
+			b = Point_3.linearCombination(new Point_3[] {b, new Point_3(TMP.get(0, 0), TMP.get(1, 0), TMP.get(2, 0))}, new Number[] {1, 1});
 //			b.setX((double)b.getX() + (double)tmp.getX());
 //			b.setY((double)b.getY() + (double)tmp.getY());
 //			b.setZ((double)b.getZ() + (double)tmp.getZ());
