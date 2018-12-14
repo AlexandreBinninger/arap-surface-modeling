@@ -178,7 +178,7 @@ public class RigidTransformation {
 		
 		// Step 4
 //		System.out.println("step 4");
-		int count = 0;
+//		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 //			System.out.println("step 4");
 			int i = v.index;
@@ -188,8 +188,8 @@ public class RigidTransformation {
 //			} else {
 				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
 //			}
-				System.out.println(count);
-				count++;
+//				System.out.println(count);
+//				count++;
 		}
 		
 		// Step 5

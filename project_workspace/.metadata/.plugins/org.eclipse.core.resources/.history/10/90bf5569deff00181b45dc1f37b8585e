@@ -21,7 +21,7 @@ public class MeshViewer extends PApplet{
 	int renderModes=3; // number of rendering modes
 	RigidTransformation arap;
 	
-//	String filename="OFF/high_genus.off";
+	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
 //	String filename="OFF/cube.off";
 //	String filename="OFF/torus_33.off";
@@ -30,7 +30,7 @@ public class MeshViewer extends PApplet{
 //	String filename="OFF/letter_a.off";
 //	String filename="OFF/star.off";
 //	String filename="OFF/tri_triceratops.off";
-	String filename="OFF/cactus_small.off";
+//	String filename="OFF/cactus_small.off";
 //	String filename="OFF/dino.off";
 //	String filename="OFF/square_21_spikes.off";
 //	String filename="OFF/cow.off";
@@ -143,7 +143,7 @@ public class MeshViewer extends PApplet{
 			    case('P'):this.incrzMoins(0.1); break;
 //			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(25); break;
+			    case('t'):this.transform(100); break;
 			  }
 		}
 		

@@ -31,9 +31,8 @@ public interface Matrix {
 	public Matrix getTranspose();
 	
 	public Matrix solve(Matrix B);
-
-	public Matrix vectorToMatrix(Vector_3 vector);
 	
 	public void toPrint();
 	
+	public Matrix vectorToMatrix(Vector_3 vector);
 }

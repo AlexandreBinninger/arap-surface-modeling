@@ -188,8 +188,8 @@ public class RigidTransformation {
 //			} else {
 				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
 //			}
-				System.out.println(count);
-				count++;
+//				System.out.println(count);
+//				count++;
 		}
 		
 		// Step 5

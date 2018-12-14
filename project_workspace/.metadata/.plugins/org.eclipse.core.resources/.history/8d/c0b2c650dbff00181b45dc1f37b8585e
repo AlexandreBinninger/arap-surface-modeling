@@ -143,7 +143,7 @@ public class MeshViewer extends PApplet{
 			    case('P'):this.incrzMoins(0.1); break;
 //			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(25); break;
+			    case('t'):this.transform(100); break;
 			  }
 		}
 		

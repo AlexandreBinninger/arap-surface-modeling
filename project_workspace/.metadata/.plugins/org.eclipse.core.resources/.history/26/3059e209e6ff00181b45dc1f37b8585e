@@ -177,7 +177,7 @@ public class RigidTransformation {
 		}
 		
 		// Step 4
-//		System.out.println("step 4");
+		System.out.println("step 4");
 		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 //			System.out.println("step 4");

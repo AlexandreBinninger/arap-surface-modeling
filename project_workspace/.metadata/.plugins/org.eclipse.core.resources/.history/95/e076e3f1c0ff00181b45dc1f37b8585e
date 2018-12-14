@@ -84,10 +84,6 @@ public class RigidTransformation {
 
 			Point_3 pi = new Point_3(p.get(i, 0), p.get(i, 1), p.get(i, 2));
 			v.setPoint(pi);
-//			if (!(mobilePoints.contains(v.index) || fixedPoints.contains(v.index))){
-//				Point_3 pi = new Point_3(v.getPoint().x+p.get(i, 0), v.getPoint().y+ p.get(i, 1),v.getPoint().z+ p.get(i, 2));
-//				v.setPoint(pi);
-//			}
 		}
 		for (Halfedge<Point_3> e : polyhedron3D.halfedges){
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
@@ -177,7 +173,7 @@ public class RigidTransformation {
 		}
 		
 		// Step 4
-//		System.out.println("step 4");
+		System.out.println("step 4");
 		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
 //			System.out.println("step 4");
