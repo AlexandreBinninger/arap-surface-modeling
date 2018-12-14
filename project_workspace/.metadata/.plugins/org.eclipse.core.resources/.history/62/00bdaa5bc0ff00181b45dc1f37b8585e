@@ -47,22 +47,21 @@ public class MeshViewer extends PApplet{
 //		  arap.fixedPoints.add(52);
 //		  arap.fixedPoints.add(53);
 		  
-		  if (filename.equals("OFF/cactus_small.off")){
-			  arap.fixedPoints.add(331);
-			  arap.fixedPoints.add(332);
-			  arap.fixedPoints.add(356);
-			  arap.fixedPoints.add(357);
-			  arap.fixedPoints.add(576);
-			  arap.fixedPoints.add(577);
-			  arap.fixedPoints.add(588);
-			  arap.fixedPoints.add(596);
-			  arap.fixedPoints.add(604);
-			  arap.fixedPoints.add(610);
-			  arap.fixedPoints.add(614);
-			  arap.fixedPoints.add(616);
-			  arap.fixedPoints.add(618);
-			  arap.fixedPoints.add(619);
-		  }
+		  //CACTUS
+		  arap.fixedPoints.add(331);
+		  arap.fixedPoints.add(332);
+		  arap.fixedPoints.add(356);
+		  arap.fixedPoints.add(357);
+		  arap.fixedPoints.add(576);
+		  arap.fixedPoints.add(577);
+		  arap.fixedPoints.add(588);
+		  arap.fixedPoints.add(596);
+		  arap.fixedPoints.add(604);
+		  arap.fixedPoints.add(610);
+		  arap.fixedPoints.add(614);
+		  arap.fixedPoints.add(616);
+		  arap.fixedPoints.add(618);
+		  arap.fixedPoints.add(619);
 		  
 		  
 	}
