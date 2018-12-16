@@ -119,10 +119,8 @@ public class SurfaceMesh {
 	 * Draw the entire mesh
 	 */
 	public void draw(int type) {
-		if(MeshViewer.debug){
-			this.drawAxis();
-		}
-		
+		// this.drawAxis();
+
 		// draw all faces
 		view.beginShape(view.TRIANGLES);
 		for (Face<Point_3> f : this.polyhedron3D.facets) {

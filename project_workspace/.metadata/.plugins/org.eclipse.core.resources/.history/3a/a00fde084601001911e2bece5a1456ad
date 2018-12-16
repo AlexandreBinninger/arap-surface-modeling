@@ -20,7 +20,7 @@ public class MeshViewer extends PApplet{
 	int renderType=0; // choice of type of rendering
 	int renderModes=3; // number of rendering modes
 	RigidTransformation arap;
-	public static boolean debug = true;
+	static boolean debug = true;
 	
 //	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
@@ -60,7 +60,7 @@ public class MeshViewer extends PApplet{
 			  arap.fixedPoints.add(618);
 			  arap.fixedPoints.add(619);
 		  } else{
-//			  arap.fixedPoints.add(4);
+			  arap.fixedPoints.add(4);
 		  }
 		  
 		  

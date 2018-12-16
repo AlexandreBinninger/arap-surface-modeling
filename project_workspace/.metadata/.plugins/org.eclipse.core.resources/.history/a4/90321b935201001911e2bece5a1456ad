@@ -2,8 +2,6 @@ package core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-
-import display.MeshViewer;
 //import java.util.Iterator;
 
 import Jcg.geometry.*;
@@ -75,9 +73,7 @@ public class RigidTransformation {
 			}
 		}
 		
-		if (MeshViewer.debug){
-			System.out.println("Is neighbors redundant : "+this.is_redundant());
-		}
+		System.out.println("Redundancy : "+this.is_redundant());
 	}
 	
 	public void updateEverything() {
@@ -247,14 +243,7 @@ public class RigidTransformation {
 			ArrayList<Halfedge<Point_3>> List = this.globalNeighbors.get(v);
 			ArrayList<Vertex<Point_3>> ListVertex = new ArrayList<Vertex<Point_3>>();
 			for (Halfedge<Point_3> h : List){
-				ListVertex.add(h.getVertex());
-			}
-			
-			for (Halfedge<Point_3> h : List){
-				ListVertex.remove(h.getVertex());
-				if (ListVertex.contains(h.getVertex())){
-					return true;
-				}
+				ListVertex
 			}
 		}
 		
