@@ -96,7 +96,7 @@ public class RigidTransformation {
 			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
 			int i = e.getVertex().index;
 			L.set(i, i, 0);
-			//if e is a mobile point, then the Lplace-Beltrami operator is modified. The columns and lines are set to 0 except in (i, i), where it is set to 1.
+			//if e is a mobile point, then the Lplace-Beltrami operator is modified. The columns and lines are set to 0 except in i
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)){
 				for (int k = 0; k<L.getColumnDimension(); k++) {
 					L.set(i, k, 0);
@@ -118,8 +118,7 @@ public class RigidTransformation {
 		}	
 	}
 	
-	//This function was a try, actually useless
-	private Vector_3 computeTranslation(Vertex<Point_3> v){
+	public Vector_3 computeTranslation(Vertex<Point_3> v){
 		ArrayList<Halfedge<Point_3>> neighbours = globalNeighbors.get(v);
 		Point_3 pMoy = new Point_3(0, 0, 0);
 		Point_3 pPrimeMoy = new Point_3(0, 0, 0);
@@ -148,7 +147,7 @@ public class RigidTransformation {
 	}
 	
 	public void arapIteration() {
-		// Step 2
+		// Step 3
 		for (Integer index : mobilePoints){
 			Vertex<Point_3> v = polyhedron3D.vertices.get(index);
 			Point_3 vPoint = v.getPoint();
@@ -172,18 +171,25 @@ public class RigidTransformation {
 		}
 		
 		
-		// Step 3
-		if (MeshViewer.debug){
-			System.out.println("Step 3");
-		}
+		// Step 4
+//		System.out.println("step 4");
+		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
+//			System.out.println("step 4");
 			int i = v.index;
-			VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
+
+//			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
+//				VertRotMap.put(v, Rotation_3.rotationAxisX(0.));
+//			} else {
+				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
+//			}
+				System.out.println(count);
+				count++;
 		}
 		
-		// Step 4
+		// Step 5
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
-			if (MeshViewer.debug) System.out.println("Step 4");
+//			System.out.println("step 5");
 			int i = v.index;
 			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
 				b.set(i, 0, (Double) pPrime.get(i, 0));
@@ -196,21 +202,25 @@ public class RigidTransformation {
 				b.set(i, 2, (Double) bi.getZ());
 			}
 		}
-		
-		// print L if debug is active.
-		if (MeshViewer.debug){
-			System.out.println("L = ");
-			L.toPrint();
-			this.isSymmetric(L);
-		}
-		
-		//solve Lp'=b
+//		System.out.println("L = ");
+//		L.toPrint();
 		Matrix pSecond = L.solve(b);
 		
+//		for (Integer index : fixedPoints){
+//			pSecond.set(index, 0, pPrime.get(index, 0));
+//			pSecond.set(index, 1, pPrime.get(index, 1));
+//			pSecond.set(index, 2, pPrime.get(index, 2));
+//		}
+//
+//		for (Integer index1 : mobilePoints){
+//			pSecond.set(index1, 0, pPrime.get(index1, 0));
+//			pSecond.set(index1, 1, pPrime.get(index1, 1));
+//			pSecond.set(index1, 2, pPrime.get(index1, 2));
+//		}
+
 		pPrime = pSecond;
 		
 	}
-	
 	
 	public boolean isSymmetric(Matrix M){
 		int jmax = M.getColumnDimension();
@@ -223,7 +233,7 @@ public class RigidTransformation {
 				}
 			}
 		}
-		System.out.println("Matrix is symmetric");
+		System.out.println("symmetric");
 		return true;
 	}
 	

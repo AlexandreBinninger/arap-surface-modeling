@@ -2,7 +2,6 @@ package matrixPkg;
 import Jcg.geometry.Vector_3;
 import Utils.Pair;
 
-//General interface to represent Matrix
 public interface Matrix {
 	
 	public Pair<Matrix, Matrix> getSVD();

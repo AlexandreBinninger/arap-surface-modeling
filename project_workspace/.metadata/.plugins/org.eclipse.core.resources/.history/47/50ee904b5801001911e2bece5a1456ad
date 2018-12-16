@@ -56,7 +56,6 @@ public class Computations {
 		return (neighbors);
 	}
 
-	// Return the hash map of weight for a specific vertex (represented by an halfedge pointing to it).
 	static HashMap<Halfedge<Point_3>, Double> getWeightsMap(Halfedge<Point_3> h, ArrayList<Halfedge<Point_3>> neighbors) {
 		HashMap<Halfedge<Point_3>, Double> weights = new HashMap<Halfedge<Point_3>, Double>();
 		Iterator<Halfedge<Point_3>> iter = neighbors.iterator();
@@ -67,7 +66,7 @@ public class Computations {
 		return weights;
 	}
 	
-	// Return P or P' in equation (5) of the paper
+	
 	static Matrix getColumnMatrix(Matrix points, int i, ArrayList<Halfedge<Point_3>> neighbors) {
 		// points contains the vertices, P is the Pi of one vertex
 		int n = neighbors.size();
@@ -81,7 +80,6 @@ public class Computations {
 		return P;	
 	}
 	
-	// Return matrix of weights
 	static Matrix getWeightsMatrix(ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		int n = neighbors.size();
 		Matrix D = new Jama_Matrix(new double[n][n]);
@@ -94,7 +92,6 @@ public class Computations {
 	}
 	
 
-	// Compute the covariance Matrix.
 	static Matrix getCovarianceMatrix(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix P = getColumnMatrix(points, i, neighbors);
 		Matrix PPrime = getColumnMatrix(pointsPrime, i, neighbors);
@@ -103,7 +100,7 @@ public class Computations {
 		return S;
 	}
 	
-	// Compute the rotation R_i
+	
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
 		Pair<Matrix, Matrix> UV = S.getSVD();
@@ -128,7 +125,6 @@ public class Computations {
 		return R;
 	}
 	
-	// Compute b[i] of Laplace-Beltrami equation (eq 9 of the paper)
 	static Point_3 getBi(Vertex<Point_3> v, HashMap<Vertex<Point_3>, Rotation_3> VertRotMap, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights){
 		Point_3 b = new Point_3(0., 0., 0.);
 		Rotation_3 R_i = VertRotMap.get(v);

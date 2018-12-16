@@ -201,7 +201,7 @@ public class RigidTransformation {
 		if (MeshViewer.debug){
 			System.out.println("L = ");
 			L.toPrint();
-			this.isSymmetric(L);
+			System.out.println("L is symmetric : "+this.isSymmetric(L));
 		}
 		
 		//solve Lp'=b
@@ -223,7 +223,7 @@ public class RigidTransformation {
 				}
 			}
 		}
-		System.out.println("Matrix is symmetric");
+		System.out.println("symmetric");
 		return true;
 	}
 	

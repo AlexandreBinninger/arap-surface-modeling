@@ -36,6 +36,8 @@ public class SurfaceMesh {
 				sharedVertex.faceDegrees, sharedVertex.faces,
 				sharedVertex.sizeHalfedges);
 
+		// System.out.println(polyhedron3D.verticesToString());
+		// System.out.println(polyhedron3D.facesToString());
 		polyhedron3D.isValid(false);
 
 		this.scaleFactor = this.computeScaleFactor();
@@ -143,6 +145,11 @@ public class SurfaceMesh {
 		
 		if (type == 0)
 			return; // no rendering for mobile vertices
+			//
+			// view.noStroke();
+			// view.fill(0f, 0f, 250f);
+			// for(Vertex<Point_3> v: this.polyhedron3D.vertices) {
+			// this.drawVertex(v.getPoint());
 		
 		view.noStroke();
 		view.fill(0f, 0f, 250f);

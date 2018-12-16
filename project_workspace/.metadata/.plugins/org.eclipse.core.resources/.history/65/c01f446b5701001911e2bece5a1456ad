@@ -173,12 +173,19 @@ public class RigidTransformation {
 		
 		
 		// Step 3
-		if (MeshViewer.debug){
-			System.out.println("Step 3");
-		}
+		if (MeshViewer.debug) System.out.println("Step 3");
+		int count = 0;
 		for (Vertex<Point_3> v : polyhedron3D.vertices) {
+//			System.out.println("step 4");
 			int i = v.index;
-			VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
+
+//			if (mobilePoints.contains(i) || fixedPoints.contains(i)) {
+//				VertRotMap.put(v, Rotation_3.rotationAxisX(0.));
+//			} else {
+				VertRotMap.put(v, Computations.getVertexRotation(p, pPrime, i, globalNeighbors.get(v), weightij.get(v)));
+//			}
+				System.out.println(count);
+				count++;
 		}
 		
 		// Step 4
@@ -201,7 +208,6 @@ public class RigidTransformation {
 		if (MeshViewer.debug){
 			System.out.println("L = ");
 			L.toPrint();
-			this.isSymmetric(L);
 		}
 		
 		//solve Lp'=b
@@ -210,7 +216,6 @@ public class RigidTransformation {
 		pPrime = pSecond;
 		
 	}
-	
 	
 	public boolean isSymmetric(Matrix M){
 		int jmax = M.getColumnDimension();
@@ -223,7 +228,7 @@ public class RigidTransformation {
 				}
 			}
 		}
-		System.out.println("Matrix is symmetric");
+		System.out.println("symmetric");
 		return true;
 	}
 	

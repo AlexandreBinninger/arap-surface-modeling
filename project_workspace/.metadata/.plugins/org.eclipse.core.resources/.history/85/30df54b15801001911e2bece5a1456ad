@@ -94,7 +94,7 @@ public class Computations {
 	}
 	
 
-	// Compute the covariance Matrix.
+	// Compute the 
 	static Matrix getCovarianceMatrix(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix P = getColumnMatrix(points, i, neighbors);
 		Matrix PPrime = getColumnMatrix(pointsPrime, i, neighbors);
@@ -103,7 +103,7 @@ public class Computations {
 		return S;
 	}
 	
-	// Compute the rotation R_i
+	
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
 		Pair<Matrix, Matrix> UV = S.getSVD();
@@ -128,7 +128,6 @@ public class Computations {
 		return R;
 	}
 	
-	// Compute b[i] of Laplace-Beltrami equation (eq 9 of the paper)
 	static Point_3 getBi(Vertex<Point_3> v, HashMap<Vertex<Point_3>, Rotation_3> VertRotMap, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights){
 		Point_3 b = new Point_3(0., 0., 0.);
 		Rotation_3 R_i = VertRotMap.get(v);

@@ -103,7 +103,7 @@ public class Computations {
 		return S;
 	}
 	
-	// Compute the rotation R_i
+	// 
 	static Rotation_3 getVertexRotation(Matrix points, Matrix pointsPrime, int i, ArrayList<Halfedge<Point_3>> neighbors, HashMap<Vertex<Point_3>, Double> weights) {
 		Matrix S = getCovarianceMatrix(points, pointsPrime, i, neighbors, weights);
 		Pair<Matrix, Matrix> UV = S.getSVD();
