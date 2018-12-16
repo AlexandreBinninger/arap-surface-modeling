@@ -111,19 +111,14 @@ public class MeshViewer extends PApplet{
 		}
 		
 		public void updateMobilePoints(){
-			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
+Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
 			
 			if(debug){
-				System.out.print("Mobile point "+v.index+" : "+v.getPoint());
+				System.out.println(v.getPoint());
 			}
 			
 			Point_3 pi = v.getPoint();
 			pi.setX((Double)pi.getX() + 0.01);
-			
-			if (debug){
-				System.out.println(" becomes "+v.getPoint());
-			}
-			
 		}
 		
 		public void transform(int loops) {

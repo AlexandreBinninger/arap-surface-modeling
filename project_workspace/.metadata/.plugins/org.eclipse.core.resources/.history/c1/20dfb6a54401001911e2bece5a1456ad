@@ -166,7 +166,6 @@ public class RigidTransformation {
 			L.set(index, index, 1);
 		}
 		
-		
 		// Step 4
 //		System.out.println("step 4");
 		int count = 0;

@@ -156,6 +156,17 @@ public class RigidTransformation {
 				L.set(k, i, 0);
 			}
 			L.set(i, i, 1);
+			// the few next lines should be uncommented if we need to update the weights too
+//			Halfedge<Point_3> e = v.getHalfedge();
+//			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
+//			int i = v.index; // hopefully, it is polyhedron3D.vertices.indexOf(e.getVertex())
+//			L.set(i, i, 0);
+//			for (Halfedge<Point_3> f : tmp.keySet()){
+//				int j = f.getVertex().index;
+//				weightij.get(e.getVertex()).put(f.getVertex(), tmp.get(f));
+//				L.set(i, j, -tmp.get(f));
+//				L.set(i, i, L.get(i, i)+tmp.get(f));
+//			}
 		}
 
 		for (Integer index : fixedPoints){
@@ -165,7 +176,6 @@ public class RigidTransformation {
 			}
 			L.set(index, index, 1);
 		}
-		
 		
 		// Step 4
 //		System.out.println("step 4");
