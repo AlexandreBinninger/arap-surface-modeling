@@ -132,22 +132,8 @@ public class MeshViewer extends PApplet{
 			ArrayList<Vertex<Point_3>> vertices = this.arap.polyhedron3D.vertices;
 			int n = vertices.size();
 			Point_3[] points = new Point_3[n];
-			int i=0;
-			for (Vertex<Point_3> v : vertices){
-				points[i]= v.getPoint();
-				i++;
-			}
-			Point_3 result = new Point_3();
-			result.barycenter(points);
-			return result;
-		}
-		
-		//Aborted try
-		public void translate(){
-			Point_3 barycenter = getBarycenter();
-			for (Vertex<Point_3> v : this.arap.polyhedron3D.vertices){
-				Point_3 p = new Point_3(v.getPoint().x-barycenter.x, v.getPoint().y-barycenter.y, v.getPoint().z-barycenter.z);
-				v.setPoint(p);
+			for (int i=0; i<n; i++){
+				
 			}
 		}
 		
@@ -173,7 +159,7 @@ public class MeshViewer extends PApplet{
 			    case('p'):this.incrzPlus(0.1); break;
 			    case('P'):this.incrzMoins(0.1); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(100); break;
+			    case('t'):this.transform(4); break;
 			  }
 		}
 		

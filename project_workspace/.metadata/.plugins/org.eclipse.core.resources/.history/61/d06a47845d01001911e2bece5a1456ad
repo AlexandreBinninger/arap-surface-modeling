@@ -142,7 +142,7 @@ public class MeshViewer extends PApplet{
 			return result;
 		}
 		
-		//Aborted try
+		
 		public void translate(){
 			Point_3 barycenter = getBarycenter();
 			for (Vertex<Point_3> v : this.arap.polyhedron3D.vertices){
@@ -154,6 +154,7 @@ public class MeshViewer extends PApplet{
 		public void transform(int loops) {
 			
 			updateMobilePoints();
+			translate();
 			
 			for(int i=0; i < loops; i++) {
 				arap.arapIteration();
