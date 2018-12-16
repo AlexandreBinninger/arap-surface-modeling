@@ -156,6 +156,7 @@ public class RigidTransformation {
 				L.set(k, i, 0);
 			}
 			L.set(i, i, 1);
+//			}
 			// the few next lines should be uncommented if we need to update the weights too
 //			Halfedge<Point_3> e = v.getHalfedge();
 //			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));

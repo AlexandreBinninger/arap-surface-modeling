@@ -151,11 +151,12 @@ public class RigidTransformation {
 			pPrime.set(v.index, 1, (Double) vPoint.getY());
 			pPrime.set(v.index, 2, (Double) vPoint.getZ());
 			int i=v.index;
-			for (int k = 0; k < L.getColumnDimension(); k++) {
-				L.set(i, k, 0);
-				L.set(k, i, 0);
-			}
-			L.set(i, i, 1);
+				for (int k = 0; k<L.getColumnDimension(); k++) {
+					L.set(i, k, 0);
+					L.set(k, i, 0);
+				}
+				L.set(i, i, 1);
+//			}
 			// the few next lines should be uncommented if we need to update the weights too
 //			Halfedge<Point_3> e = v.getHalfedge();
 //			HashMap<Halfedge<Point_3>, Double> tmp = Computations.getWeightsMap(e, globalNeighbors.get(e.getVertex()));
