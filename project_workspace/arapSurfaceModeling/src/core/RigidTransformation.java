@@ -7,6 +7,8 @@ import java.util.HashMap;
 import Jcg.geometry.*;
 import Jcg.polyhedron.*;
 import Utils.Rotation_3;
+import cern.colt.matrix.tdouble.impl.SparseDoubleMatrix2D;
+import matrixPkg.Parallel_Colt;
 import matrixPkg.Jama_Matrix;
 import matrixPkg.Matrix;
 
@@ -42,12 +44,12 @@ public class RigidTransformation {
 //		globalTranslation = new Vector_3(0, 0, 0);
 		globalNeighbors = new HashMap<Vertex<Point_3>, ArrayList<Halfedge<Point_3>>>();
 		weightij = new HashMap<Vertex<Point_3>, HashMap<Vertex<Point_3>, Double>>();
-		L = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), polyhedron3D.vertices.size()));
+		L = new Parallel_Colt(new SparseDoubleMatrix2D(polyhedron3D.vertices.size(), polyhedron3D.vertices.size()));
 		mobilePoints = new ArrayList<Integer>();
 		fixedPoints = new ArrayList<Integer>();
-		p = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
-		pPrime = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
-		b = new Jama_Matrix(new Jama.Matrix(polyhedron3D.vertices.size(), 3));
+		p = new Parallel_Colt(new SparseDoubleMatrix2D(polyhedron3D.vertices.size(), 3));
+		pPrime = new Parallel_Colt(new SparseDoubleMatrix2D(polyhedron3D.vertices.size(), 3));
+		b = new Parallel_Colt(new SparseDoubleMatrix2D(polyhedron3D.vertices.size(), 3));
 		
 		for (Vertex<Point_3> v : polyhedron3D.vertices){
 			weightij.put(v, new HashMap<Vertex<Point_3>, Double>());

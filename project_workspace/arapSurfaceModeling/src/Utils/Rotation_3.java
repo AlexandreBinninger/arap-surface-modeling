@@ -2,6 +2,7 @@ package Utils;
 import Jcg.geometry.*;
 import matrixPkg.Jama_Matrix;
 import matrixPkg.Matrix;
+import matrixPkg.Parallel_Colt;
 
 /**
  * Define a 3D Rotation (using Euler angles)
@@ -21,7 +22,7 @@ public class Rotation_3 {
 	}	
 
 	public Rotation_3(double[][] array){
-		this.m= new Jama_Matrix(array);
+		this.m= new Parallel_Colt(array);
 	}
 
 	/**
@@ -58,7 +59,7 @@ public class Rotation_3 {
 		double y=p.getCartesian(1).doubleValue();
 		double z=p.getCartesian(2).doubleValue();
 		double[][] array = {{x}, {y}, {z}}; 
-		Matrix v= new Jama_Matrix(array); // the vector
+		Matrix v= new Parallel_Colt(array); // the vector
 		Matrix result=this.m.times(v);
 //		v.toPrint();
 //		result.toPrint();

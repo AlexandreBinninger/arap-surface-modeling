@@ -7,11 +7,13 @@ import Jcg.geometry.Vector_3;
 import Utils.Pair;
 import cern.colt.matrix.tdouble.algo.DenseDoubleAlgebra;
 import cern.colt.matrix.tdouble.algo.SparseDoubleAlgebra;
+import cern.colt.matrix.tdouble.algo.decomposition.DenseDoubleCholeskyDecomposition;
 import cern.colt.matrix.tdouble.algo.decomposition.DenseDoubleSingularValueDecomposition;
 import cern.colt.matrix.tdouble.algo.decomposition.SparseDoubleCholeskyDecomposition;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.SparseDoubleMatrix1D;
 import cern.colt.matrix.tdouble.impl.SparseDoubleMatrix2D;
+import cern.colt.matrix.io.MatrixVectorReader;
 import cern.colt.matrix.tdouble.DoubleMatrix1D;
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
 
@@ -54,15 +56,15 @@ public class Parallel_Colt implements Matrix {
 //		System.out.println(Arrays.deepToString(this.M.getArray()));
 		DenseDoubleSingularValueDecomposition svd = new DenseDoubleSingularValueDecomposition(M, true, true);
 //		System.out.println("after svd1");
-		Matrix u = (Matrix) new Parallel_Colt((SparseDoubleMatrix2D)(svd.getU()));
-		Matrix v = (Matrix) new Parallel_Colt((SparseDoubleMatrix2D)(svd.getV()));
+		Matrix u = (Matrix) new Parallel_Colt(new SparseDoubleMatrix2D(svd.getU().toArray()));
+		Matrix v = (Matrix) new Parallel_Colt(new SparseDoubleMatrix2D(svd.getV().toArray()));
 		Pair<Matrix, Matrix> uv = new Pair<Matrix, Matrix>(u, v);
 		return uv;
 	}
 	
 	public Matrix getS() {
 		DenseDoubleSingularValueDecomposition svd = new DenseDoubleSingularValueDecomposition(M, false, false);
-		Matrix s = (Matrix) new Parallel_Colt((SparseDoubleMatrix2D)(svd.getS()));
+		Matrix s = (Matrix) new Parallel_Colt(new SparseDoubleMatrix2D(svd.getS().toArray()));
 		return s;
 	}
 	
@@ -76,19 +78,19 @@ public class Parallel_Colt implements Matrix {
 	}
 	
 	public Matrix times(double s) {
-		SparseDoubleMatrix2D A = (SparseDoubleMatrix2D) M.copy();
+		SparseDoubleMatrix2D A = (SparseDoubleMatrix2D) (M.copy());
 		for(int i=0; i<this.getRowDimension(); i++) {
 			for(int j=0; j<this.getColumnDimension(); j++) {
 				A.set(i, j, M.get(i, j) * s);
 			}
 		}
-		return null;
+		return (Matrix) (new Parallel_Colt(A));
 	}
 	
 	public Matrix times(Matrix B) {
 		if (B instanceof Parallel_Colt) {
 			DenseDoubleAlgebra alg = new DenseDoubleAlgebra();
-			return (Matrix) (SparseDoubleMatrix2D)(alg.mult(M, ((Parallel_Colt)B).M));
+			return (Matrix) (new Parallel_Colt(new SparseDoubleMatrix2D(alg.mult(M, ((Parallel_Colt)B).M).toArray())));
 		}
 		System.err.println("Parallel_Colt times (not Parallel_Colt)");
 		return null;
@@ -110,24 +112,26 @@ public class Parallel_Colt implements Matrix {
 	
 	public Matrix getTranspose() {
 		DenseDoubleAlgebra alg = new DenseDoubleAlgebra();
-		return (Matrix) (new Parallel_Colt((SparseDoubleMatrix2D)(alg.transpose(this.M))));
+		return (Matrix) (new Parallel_Colt(new SparseDoubleMatrix2D(alg.transpose(this.M).toArray())));
 	}
 	
 	public Matrix solve(Matrix B) {
 		if (B instanceof Parallel_Colt) {
 			SparseDoubleMatrix2D X = new SparseDoubleMatrix2D(B.getRowDimension(), B.getColumnDimension());
-			SparseDoubleCholeskyDecomposition chol = new SparseDoubleCholeskyDecomposition(M, 0);
-			for(int j = 0; j < B.getColumnDimension(); j++) {
-				DoubleMatrix1D bColumn = new SparseDoubleMatrix1D(B.getRowDimension());
-				for(int i = 0; i < B.getRowDimension(); i++) {
-					bColumn.set(i, B.get(i, j));
-				}
-				chol.solve(bColumn);
-				for(int i = 0; i < B.getRowDimension(); i++) {
-					X.set(i, j, bColumn.get(i));
-				}
-			}
-			return (new Parallel_Colt(X));
+			DenseDoubleCholeskyDecomposition chol = new DenseDoubleCholeskyDecomposition(new DenseDoubleMatrix2D(M.toArray()));
+//			for(int j = 0; j < B.getColumnDimension(); j++) {
+//				SparseDoubleMatrix1D bColumn = new SparseDoubleMatrix1D(B.getRowDimension());
+//				for(int i = 0; i < B.getRowDimension(); i++) {
+//					bColumn.set(i, B.get(i, j));
+//				}
+//				chol.solve(bColumn);
+//				for(int i = 0; i < B.getRowDimension(); i++) {
+//					X.set(i, j, bColumn.get(i));
+//				}
+//			}
+			DenseDoubleMatrix2D C = new DenseDoubleMatrix2D(((Parallel_Colt)B).M.toArray());
+			chol.solve(C);
+			return (new Parallel_Colt(new SparseDoubleMatrix2D(C.toArray())));
 		}
 		System.err.println("solve not Parallel_Colt");
 		return null;
