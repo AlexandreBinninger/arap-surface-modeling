@@ -23,6 +23,7 @@ public class MeshViewer extends PApplet{
 	int renderModes=3; // number of rendering modes
 	RigidTransformation arap;
 	public static boolean debug = false;
+	static boolean showTime = true;
 	
 //	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
@@ -153,6 +154,11 @@ public class MeshViewer extends PApplet{
 		
 		public void transform(int loops) {
 			
+			double t =0;
+			if (showTime){
+				t=System.currentTimeMillis();
+			}
+			
 			updateMobilePoints();
 			
 			for(int i=0; i < loops; i++) {
@@ -160,6 +166,11 @@ public class MeshViewer extends PApplet{
 			}
 			arap.updateEverything();
 			mesh.polyhedron3D = arap.polyhedron3D;
+			
+			if (showTime){
+				t = System.currentTimeMillis()-t;
+				System.out.println("Execution time : "+t/1000+" s");
+			}
 		}
 		
 		public void keyPressed(){
@@ -173,7 +184,7 @@ public class MeshViewer extends PApplet{
 			    case('p'):this.incrzPlus(0.1); break;
 			    case('P'):this.incrzMoins(0.1); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(100); break;
+			    case('t'):this.transform(25); break;
 			  }
 		}
 		

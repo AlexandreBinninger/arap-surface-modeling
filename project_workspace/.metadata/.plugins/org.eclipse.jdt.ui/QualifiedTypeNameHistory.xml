@@ -5,4 +5,6 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="Utils.Pair"/>
 <fullyQualifiedTypeName name="matrixPkg.Jama_Matrix"/>
+<fullyQualifiedTypeName name="display.MeshViewer"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

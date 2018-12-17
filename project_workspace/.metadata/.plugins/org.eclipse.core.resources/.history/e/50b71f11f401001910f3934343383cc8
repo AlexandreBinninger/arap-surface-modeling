@@ -1,6 +1,8 @@
 package display;
 
 
+import java.util.ArrayList;
+
 import processing.core.*;
 
 import Jcg.geometry.*;
@@ -20,6 +22,7 @@ public class MeshViewer extends PApplet{
 	int renderType=0; // choice of type of rendering
 	int renderModes=3; // number of rendering modes
 	RigidTransformation arap;
+	public static boolean debug = false;
 	
 //	String filename="OFF/high_genus.off";
 //	String filename="OFF/sphere.off";
@@ -42,33 +45,32 @@ public class MeshViewer extends PApplet{
 		  arap = new RigidTransformation(mesh.polyhedron3D);;
 		  System.out.println(arap.polyhedron3D.vertices.size());
 		  arap.mobilePoints.add(0);
-//		  arap.fixedPoints.add(4);
-//		  arap.fixedPoints.add(51);
-//		  arap.fixedPoints.add(52);
-//		  arap.fixedPoints.add(53);
 		  
-		  //CACTUS
-//		  arap.fixedPoints.add(331);
-//		  arap.fixedPoints.add(332);
-//		  arap.fixedPoints.add(356);
-//		  arap.fixedPoints.add(357);
-//		  arap.fixedPoints.add(576);
-//		  arap.fixedPoints.add(577);
-//		  arap.fixedPoints.add(588);
-//		  arap.fixedPoints.add(596);
-
-//		  arap.fixedPoints.add(604);
-		  arap.fixedPoints.add(609);
+		  if (filename.equals("OFF/cactus_small.off")){
+			  arap.fixedPoints.add(331);
+			  arap.fixedPoints.add(332);
+			  arap.fixedPoints.add(356);
+			  arap.fixedPoints.add(357);
+			  arap.fixedPoints.add(576);
+			  arap.fixedPoints.add(577);
+			  arap.fixedPoints.add(588);
+			  arap.fixedPoints.add(596);
+			  arap.fixedPoints.add(604);
+			  arap.fixedPoints.add(610);
+			  arap.fixedPoints.add(614);
+			  arap.fixedPoints.add(616);
+			  arap.fixedPoints.add(618);
+			  arap.fixedPoints.add(619);
+		  } else{
+//			  arap.fixedPoints.add(4);
+		  }
 		  
-//		  
-//		  for (int i=600; i<605; i++){
-//			  arap.fixedPoints.add(i);
-//		  }
+		  
 	}
 		 
 		public void draw() {
 		  background(0);
-		  //this.lights();
+//		  this.lights();
 		  directionalLight(101, 204, 255, -1, 0, 0);
 		  directionalLight(51, 102, 126, 0, -1, 0);
 		  directionalLight(51, 102, 126, 0, 0, -1);
@@ -109,25 +111,65 @@ public class MeshViewer extends PApplet{
 		public void incrzMoins(double incr){
 			this.mesh.incrz-=incr;
 		}
-		public void transform(int loops) {
+		
+		public void updateMobilePoints(){
 			Vertex<Point_3> v = arap.polyhedron3D.vertices.get(arap.mobilePoints.get(0));
 			
-			System.out.println(v.getPoint());
-			
-			//TEST
-//			for (Vertex<Point_3> vv : arap.polyhedron3D.vertices){
-				//System.out.println(vv.index);
-//			}
-			//TEST
+			if(debug){
+				System.out.print("Mobile point "+v.index+" : "+v.getPoint());
+			}
 			
 			Point_3 pi = v.getPoint();
 			pi.setX((Double)pi.getX() + 0.01);
-			System.out.println(v.getPoint());
+			
+			if (debug){
+				System.out.println(" becomes "+v.getPoint());
+			}
+			
+		}
+		
+		public Point_3 getBarycenter(){
+			ArrayList<Vertex<Point_3>> vertices = this.arap.polyhedron3D.vertices;
+			int n = vertices.size();
+			Point_3[] points = new Point_3[n];
+			int i=0;
+			for (Vertex<Point_3> v : vertices){
+				points[i]= v.getPoint();
+				i++;
+			}
+			Point_3 result = new Point_3();
+			result.barycenter(points);
+			return result;
+		}
+		
+		//Aborted try
+		public void translate(){
+			Point_3 barycenter = getBarycenter();
+			for (Vertex<Point_3> v : this.arap.polyhedron3D.vertices){
+				Point_3 p = new Point_3(v.getPoint().x-barycenter.x, v.getPoint().y-barycenter.y, v.getPoint().z-barycenter.z);
+				v.setPoint(p);
+			}
+		}
+		
+		public void transform(int loops) {
+			
+			double t =0;
+			if (debug){
+				t=System.currentTimeMillis();
+			}
+			
+			updateMobilePoints();
+			
 			for(int i=0; i < loops; i++) {
 				arap.arapIteration();
 			}
 			arap.updateEverything();
 			mesh.polyhedron3D = arap.polyhedron3D;
+			
+			if (debug){
+				t = System.currentTimeMillis()-t;
+				System.out.println("Execution time : "+t+" ms");
+			}
 		}
 		
 		public void keyPressed(){
@@ -140,9 +182,8 @@ public class MeshViewer extends PApplet{
 			    case('O'):this.incryMoins(0.1); break;
 			    case('p'):this.incrzPlus(0.1); break;
 			    case('P'):this.incrzMoins(0.1); break;
-//			    case('s'):case('S'): this.subdivide(); break;
 			    case('r'):this.renderType=(this.renderType+1)%this.renderModes; break;
-			    case('t'):this.transform(100); break;
+			    case('t'):this.transform(25); break;
 			  }
 		}
 		
@@ -151,9 +192,9 @@ public class MeshViewer extends PApplet{
 		 * For running the PApplet as Java application
 		 */
 		public static void main(String args[]) {
-			//PApplet pa=new MeshViewer();
-			//pa.setSize(400, 400);
-		PApplet.main(new String[] { "MeshViewer" });
+			PApplet pa=new MeshViewer();
+			pa.setSize(400, 400);
+			PApplet.main(new String[] { "MeshViewer" });
 		
 	}
 
